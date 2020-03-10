@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello World</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- ElegantFonts CSS -->
+    <link rel="stylesheet" href="css/elegant-fonts.css">
+
+    <!-- themify-icons CSS -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="courses-page">
+    <div class="page-header">
+        <header class="site-header">
+            <div class="top-header-bar">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
+
+
+                            <div class="header-bar-text lg-flex align-items-center">
+                                <a href="https://github.com/SoftwareEngineeringProJ/Academic-Calendar-Map">
+                                    　　<i class="fa fa-github"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-envelope-o"></i>
+                                </a>
+                            </div><!-- .header-bar-text -->
+                        </div><!-- .col -->
+
+                        <div class="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
+                            <div class="header-bar-search" >
+                                <form class="flex align-items-stretch">
+                                    <input type="search" placeholder="搜索">
+                                    <button type="submit" value="" class="flex justify-content-center align-items-center"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div><!-- .header-bar-search -->
+
+                            <div class="header-bar-menu">
+                                <ul class="flex justify-content-center align-items-center py-2 pt-md-0">
+                                    <li><a href="#">注册</a></li>
+                                    <li><a href="#">登录</a></li>
+                                </ul>
+                            </div><!-- .header-bar-menu -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container-fluid -->
+            </div><!-- .top-header-bar -->
+
+            <div class="nav-bar" id="floatbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-9 col-lg-3">
+                            <div class="site-branding">
+                                <h1 class="site-title"><a href="index.html" rel="home">学术<span>日历与地图</span></a></h1>
+                            </div><!-- .site-branding -->
+                        </div><!-- .col -->
+
+                        <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
+                            <nav class="site-navigation flex justify-content-end align-items-center">
+                                <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+                                    <li class="current-menu-item"><a href="index.html">首页</a></li>
+                                    <li><a href="conference.html">查询会议</a></li>
+                                    <li><a href="add.html">添加会议</a></li>
+                                    <li><a href="#aboutus">关于我们</a></li>
+                                    <li><a href="personal.html">个人中心</a></li>
+                                </ul>
+
+
+
+                            </nav><!-- .site-navigation -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .nav-bar -->
+        </header><!-- .site-header -->
+
+        <div class="page-header-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <header class="entry-header">
+                            <h1>检索会议</h1>
+                        </header><!-- .entry-header -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .page-header-overlay -->
+    </div><!-- .page-header -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs">
+                    <ul class="flex flex-wrap align-items-center p-0 m-0">
+                        <li><a href="#"><i class="fa fa-home"></i> 首页</a></li>
+                        <li>查询会议</li>
+                    </ul>
+                </div><!-- .breadcrumbs -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="featured-courses courses-wrap">
+                    <div class="row mx-m-25">
+                        <div class="col-12 col-md-6 px-25">
+<!--                            <div class="course-content">-->
+<!--                                <figure class="course-thumbnail">-->
+<!--                                    <a href="#"><img src="images/1.jpg" alt=""></a>-->
+<!--                                </figure>&lt;!&ndash; .course-thumbnail &ndash;&gt;-->
+
+<!--                                <div class="course-content-wrap">-->
+<!--                                    <header class="entry-header">-->
+<!--                                        <h2 class="entry-title"><a href="#">The Complete Android Developer Course</a></h2>-->
+
+<!--                                        <div class="entry-meta flex flex-wrap align-items-center">-->
+<!--                                            <div class="course-author"><a href="#">Ms. Lara Croft </a></div>-->
+
+<!--                                            <div class="course-date">July 21, 2018</div>-->
+<!--                                        </div>&lt;!&ndash; .course-date &ndash;&gt;-->
+<!--                                    </header>&lt;!&ndash; .entry-header &ndash;&gt;-->
+
+<!--                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">-->
+<!--                                        <div class="course-cost">-->
+<!--                                            $45 <span class="price-drop">$68</span>-->
+<!--                                        </div>&lt;!&ndash; .course-cost &ndash;&gt;-->
+
+<!--                                        <div class="course-ratings flex justify-content-end align-items-center">-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star-o"></span>-->
+
+<!--                                            <span class="course-ratings-count">(4 votes)</span>-->
+<!--                                        </div>&lt;!&ndash; .course-ratings &ndash;&gt;-->
+<!--                                    </footer>&lt;!&ndash; .entry-footer &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; .course-content-wrap &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; .course-content &ndash;&gt;-->
+                        </div><!-- .col 1-->
+
+                        <div class="col-12 col-md-6 px-25">
+<!--                            <div class="course-content">-->
+<!--                                <figure class="course-thumbnail">-->
+<!--                                    <a href="#"><img src="images/2.jpg" alt=""></a>-->
+<!--                                </figure>&lt;!&ndash; .course-thumbnail &ndash;&gt;-->
+
+<!--                                <div class="course-content-wrap">-->
+<!--                                    <header class="entry-header">-->
+<!--                                        <h2 class="entry-title"><a href="#">The Ultimate Drawing Course Beginner to Advanced</a></h2>-->
+
+<!--                                        <div class="entry-meta flex flex-wrap align-items-center">-->
+<!--                                            <div class="course-author"><a href="#">Michelle Golden</a></div>-->
+
+<!--                                            <div class="course-date">Mar 14, 2018</div>-->
+<!--                                        </div>&lt;!&ndash; .course-date &ndash;&gt;-->
+<!--                                    </header>&lt;!&ndash; .entry-header &ndash;&gt;-->
+
+<!--                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">-->
+<!--                                        <div class="course-cost">-->
+<!--                                            <span class="free-cost">Free</span>-->
+<!--                                        </div>&lt;!&ndash; .price-drop &ndash;&gt;-->
+
+<!--                                        <div class="course-ratings flex justify-content-end align-items-center">-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star-o"></span>-->
+
+<!--                                            <span class="course-ratings-count">(4 votes)</span>-->
+<!--                                        </div>&lt;!&ndash; .course-ratings &ndash;&gt;-->
+<!--                                    </footer>&lt;!&ndash; .entry-footer &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; .course-content-wrap &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; .course-content &ndash;&gt;-->
+                        </div><!-- .col 2-->
+
+                        <div class="col-12 col-md-6 px-25">
+<!--                            <div class="course-content">-->
+<!--                                <figure class="course-thumbnail">-->
+<!--                                    <a href="#"><img src="images/3.jpg" alt=""></a>-->
+<!--                                </figure>&lt;!&ndash; .course-thumbnail &ndash;&gt;-->
+
+<!--                                <div class="course-content-wrap">-->
+<!--                                    <header class="entry-header">-->
+<!--                                        <h2 class="entry-title"><a href="#">The Complete Digital Marketing Course</a></h2>-->
+
+<!--                                        <div class="entry-meta flex flex-wrap align-items-center">-->
+<!--                                            <div class="course-author"><a href="#">Ms. Lucius</a></div>-->
+
+<!--                                            <div class="course-date">Dec 18, 2018</div>-->
+<!--                                        </div>&lt;!&ndash; .course-date &ndash;&gt;-->
+<!--                                    </header>&lt;!&ndash; .entry-header &ndash;&gt;-->
+
+<!--                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">-->
+<!--                                        <div class="course-cost">-->
+<!--                                            $55 <span class="price-drop">$78</span>-->
+<!--                                        </div>&lt;!&ndash; .course-cost &ndash;&gt;-->
+
+<!--                                        <div class="course-ratings flex justify-content-end align-items-center">-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star-o"></span>-->
+
+<!--                                            <span class="course-ratings-count">(4 votes)</span>-->
+<!--                                        </div>&lt;!&ndash; .course-ratings &ndash;&gt;-->
+<!--                                    </footer>&lt;!&ndash; .entry-footer &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; .course-content-wrap &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; .course-content &ndash;&gt;-->
+                        </div><!-- .col -->
+
+                        <div class="col-12 col-md-6 px-25">
+<!--                            <div class="course-content">-->
+<!--                                <figure class="course-thumbnail">-->
+<!--                                    <a href="#"><img src="images/4.jpg" alt=""></a>-->
+<!--                                </figure>&lt;!&ndash; .course-thumbnail &ndash;&gt;-->
+
+<!--                                <div class="course-content-wrap">-->
+<!--                                    <header class="entry-header">-->
+<!--                                        <h2 class="entry-title"><a href="#">The Unreal Engine Developer Course</a></h2>-->
+
+<!--                                        <div class="entry-meta flex flex-wrap align-items-center">-->
+<!--                                            <div class="course-author"><a href="#">Mr. John Wick</a></div>-->
+
+<!--                                            <div class="course-date">Otc 17, 2018</div>-->
+<!--                                        </div>&lt;!&ndash; .course-date &ndash;&gt;-->
+<!--                                    </header>&lt;!&ndash; .entry-header &ndash;&gt;-->
+
+<!--                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">-->
+<!--                                        <div class="course-cost">-->
+<!--                                            <span class="free-cost">Free</span>-->
+<!--                                        </div>&lt;!&ndash; .course-cost &ndash;&gt;-->
+
+<!--                                        <div class="course-ratings flex justify-content-end align-items-center">-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star-o"></span>-->
+
+<!--                                            <span class="course-ratings-count">(4 votes)</span>-->
+<!--                                        </div>&lt;!&ndash; .course-ratings &ndash;&gt;-->
+<!--                                    </footer>&lt;!&ndash; .entry-footer &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; .course-content-wrap &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; .course-content &ndash;&gt;-->
+                        </div><!-- .col -->
+
+                        <div class="col-12 col-md-6 px-25">
+<!--                            <div class="course-content">-->
+<!--                                <figure class="course-thumbnail">-->
+<!--                                    <a href="#"><img src="images/5.jpg" alt=""></a>-->
+<!--                                </figure>&lt;!&ndash; .course-thumbnail &ndash;&gt;-->
+
+<!--                                <div class="course-content-wrap">-->
+<!--                                    <header class="entry-header">-->
+<!--                                        <h2 class="entry-title"><a href="#">Progressive Web Apps (PWA) - The Complete Guide</a></h2>-->
+
+<!--                                        <div class="entry-meta flex flex-wrap align-items-center">-->
+<!--                                            <div class="course-author"><a href="#">Mr. Tom Redder</a></div>-->
+
+<!--                                            <div class="course-date">Sep 14, 2018</div>-->
+<!--                                        </div>&lt;!&ndash; .course-date &ndash;&gt;-->
+<!--                                    </header>&lt;!&ndash; .entry-header &ndash;&gt;-->
+
+<!--                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">-->
+<!--                                        <div class="course-cost">-->
+<!--                                            $38 <span class="price-drop">$48</span>-->
+<!--                                        </div>&lt;!&ndash; .course-cost &ndash;&gt;-->
+
+<!--                                        <div class="course-ratings flex justify-content-end align-items-center">-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star-o"></span>-->
+
+<!--                                            <span class="course-ratings-count">(4 votes)</span>-->
+<!--                                        </div>&lt;!&ndash; .course-ratings &ndash;&gt;-->
+<!--                                    </footer>&lt;!&ndash; .entry-footer &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; .course-content-wrap &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; .course-content &ndash;&gt;-->
+                        </div><!-- .col -->
+
+                        <div class="col-12 col-md-6 px-25">
+<!--                            <div class="course-content">-->
+<!--                                <figure class="course-thumbnail">-->
+<!--                                    <a href="#"><img src="images/6.jpg" alt=""></a>-->
+<!--                                </figure>&lt;!&ndash; .course-thumbnail &ndash;&gt;-->
+
+<!--                                <div class="course-content-wrap">-->
+<!--                                    <header class="entry-header">-->
+<!--                                        <h2 class="entry-title"><a href="#">Cryptocurrency Investment Course 2018</a></h2>-->
+
+<!--                                        <div class="entry-meta flex flex-wrap align-items-center">-->
+<!--                                            <div class="course-author"><a href="#">Russell Stephens</a></div>-->
+
+<!--                                            <div class="course-date">Nov 06, 2018</div>-->
+<!--                                        </div>&lt;!&ndash; .course-date &ndash;&gt;-->
+<!--                                    </header>&lt;!&ndash; .entry-header &ndash;&gt;-->
+
+<!--                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">-->
+<!--                                        <div class="course-cost">-->
+<!--                                            <span class="free-cost">Free</span>-->
+<!--                                        </div>&lt;!&ndash; .course-cost &ndash;&gt;-->
+
+<!--                                        <div class="course-ratings flex justify-content-end align-items-center">-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star checked"></span>-->
+<!--                                            <span class="fa fa-star-o"></span>-->
+
+<!--                                            <span class="course-ratings-count">(4 votes)</span>-->
+<!--                                        </div>&lt;!&ndash; .course-ratings &ndash;&gt;-->
+<!--                                    </footer>&lt;!&ndash; .entry-footer &ndash;&gt;-->
+<!--                                </div>&lt;!&ndash; .course-content-wrap &ndash;&gt;-->
+<!--                            </div>&lt;!&ndash; .course-content &ndash;&gt;-->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .featured-courses -->
+                这里展示会议梗概，每行两个
+                <div class="pagination flex flex-wrap justify-content-between align-items-center">
+                    <div class="col-12 col-lg-4 order-2 order-lg-1 mt-3 mt-lg-0">
+                        <ul class="flex flex-wrap align-items-center order-2 order-lg-1 p-0 m-0">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 flex justify-content-start justify-content-lg-end col-lg-8 order-1 order-lg-2">
+                        <div class="pagination-results flex flex-wrap align-items-center">
+
+
+                            <form>
+                                <select>
+                                    <option>每页：6条</option>
+                                    <option>每页: 12条</option>
+                                    <option>每页: 18条</option>
+                                    <option>每页: 24条</option>
+                                </select>
+                            </form>
+                        </div><!-- .pagination-results -->
+                    </div>
+                </div><!-- .pagination -->
+            </div><!-- .col -->
+
+            <div class="col-12 col-lg-4">
+                <div class="sidebar">
+                    <div class="search-widget">
+                        <form class="flex flex-wrap align-items-center">
+                            <input type="search" placeholder="查找...">
+                            <button type="submit" class="flex justify-content-center align-items-center"><i class="fa fa-search"></i></button>
+                        </form><!-- .flex -->
+                    </div><!-- .search-widget -->
+
+                    <div class="cat-links">
+                        <h2>分类</h2>
+
+                        <ul class="p-0 m-0">
+                            <li><a href="#">高性能计算</a></li>
+                            <li><a href="#">计算机网络</a></li>
+                            <li><a href="#">网络与信息安全</a></li>
+                            <li><a href="#">软件工程</a></li>
+                            <li><a href="#">数据库与数据挖掘</a></li>
+                            <li><a href="#">理论计算机科学</a></li>
+                        </ul>
+                    </div><!-- .cat-links -->
+
+<!--                    <div class="latest-courses">-->
+<!--                        <h2>常用会议</h2>-->
+
+<!--                        <ul class="p-0 m-0">-->
+<!--                            <li class="flex flex-wrap justify-content-between align-items-center">-->
+<!--&lt;!&ndash;                                <img src="images/t-1.jpg" alt="">&ndash;&gt;-->
+
+<!--                                <div class="content-wrap">-->
+<!--                                    <h3><a href="#">The Complete Financial Analyst Training</a></h3>-->
+
+<!--                                    <div class="course-cost free-cost">Free</div>-->
+<!--                                </div>&lt;!&ndash; .content-wrap &ndash;&gt;-->
+<!--                            </li>-->
+
+<!--                            <li class="flex flex-wrap justify-content-between align-items-center">-->
+<!--                                <img src="images/t-2.jpg" alt="">-->
+
+<!--                                <div class="content-wrap">-->
+<!--                                    <h3><a href="#">Complete Java-->
+<!--                                        Masterclass</a></h3>-->
+
+<!--                                    <div class="course-cost free-cost">Free</div>-->
+<!--                                </div>&lt;!&ndash; .content-wrap &ndash;&gt;-->
+<!--                            </li>-->
+
+<!--                            <li class="flex flex-wrap justify-content-between align-items-center">-->
+<!--                                <img src="images/t-3.jpg" alt="">-->
+
+<!--                                <div class="content-wrap">-->
+<!--                                    <h3><a href="#">The Complete Digital Marketing Course</a></h3>-->
+
+<!--                                    <div class="course-cost">$24</div>-->
+<!--                                </div>&lt;!&ndash; .content-wrap &ndash;&gt;-->
+<!--                            </li>-->
+
+<!--                            <li class="flex flex-wrap justify-content-between align-items-center">-->
+<!--                                <img src="images/t-4.jpg" alt="">-->
+
+<!--                                <div class="content-wrap">-->
+<!--                                    <h3><a href="#">Photoshop CC 2018-->
+<!--                                        MasterClass</a></h3>-->
+
+<!--                                    <div class="course-cost">$18</div>-->
+<!--                                </div>&lt;!&ndash; .content-wrap &ndash;&gt;-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>&lt;!&ndash; .latest-courses &ndash;&gt;-->
+
+<!--                    <div class="ads">-->
+<!--                        <img src="images/ads.jpg" alt="">-->
+<!--                    </div>&lt;!&ndash; .ads &ndash;&gt;-->
+
+<!--                    <div class="popular-tags">-->
+<!--                        <h2>Popular Tags</h2>-->
+
+<!--                        <ul class="flex flex-wrap align-items-center p-0 m-0">-->
+<!--                            <li><a href="#">Creative</a></li>-->
+<!--                            <li><a href="#">Unique</a></li>-->
+<!--                            <li><a href="#">Photography</a></li>-->
+<!--                            <li><a href="#">ideas</a></li>-->
+<!--                            <li><a href="#">Wordpress Template</a></li>-->
+<!--                            <li><a href="#">startup</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>&lt;!&ndash; .popular-tags &ndash;&gt;-->
+                </div><!-- .sidebar -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+
+    <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)" width="100%" color=#987cb9 SIZE=10>
+
+    <footer class="site-footer">
+        <div class="footer-widgets">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="foot-about">
+                            <a class="foot-logo" href="#"><img src="images/hit.jpg" alt=""></a>
+
+                            <h5>学术日历与地图 </h5>
+
+                            <p class="footer-copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div><!-- .foot-about -->
+                    </div><!-- .col -->
+
+                    <div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                        <div class="foot-contact">
+                            <h2>联系方式</h2>
+
+                            <ul>
+                                <li>Email: sjy1933794630@gmail.com</li>
+                                <li>Address: 哈尔滨工业大学(威海)</li>
+                            </ul>
+                        </div><!-- .foot-contact -->
+                    </div><!-- .col -->
+
+                    <div class="col-12 col-md-6 col-lg-3 mt-5 mt-lg-0">
+                        <div class="quick-links flex flex-wrap">
+                            <h2 class="w-100">快速链接</h2>
+
+                            <ul class="w-50">
+                                <li><a href="#">回到顶部 </a></li>
+                                <li><a href="#aboutus">关于我们 </a></li>
+                                <li><a href="https://www.hitwh.edu.cn/">哈尔滨工业大学(威海) </a></li>
+                                <li><a href="https://www.aminer.cn/">Aminer</a></li>
+                            </ul>
+
+                        </div><!-- .quick-links -->
+                    </div><!-- .col -->
+
+                    <div class="col-12 col-md-6 col-lg-3 mt-5 mt-lg-0">
+                        <div class="follow-us">
+                            <h2>项目地址</h2>
+
+                            <ul class="follow-us flex flex-wrap align-items-center">
+                                <li><a href="https://github.com/SoftwareEngineeringProJ/Academic-Calendar-Map"><i class="fa fa-github"></i></a></li>
+                            </ul>
+                        </div><!-- .quick-links -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .footer-widgets -->
+
+    </footer><!-- .site-footer -->
+
+    <script type='text/javascript' src='js/jquery.js'></script>
+    <script type='text/javascript' src='js/swiper.min.js'></script>
+    <script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
+    <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
+    <script type='text/javascript' src='js/custom.js'></script>
+
+</body>
+</html>
