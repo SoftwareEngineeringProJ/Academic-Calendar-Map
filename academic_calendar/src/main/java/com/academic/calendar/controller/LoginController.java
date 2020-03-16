@@ -1,10 +1,17 @@
 package com.academic.calendar.controller;
 
+import com.academic.calendar.domain.User;
+import com.academic.calendar.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 登录所用控制器
@@ -12,14 +19,62 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 
-    /**
-     * 测试代码
-     * @return
-     */
-    @RequestMapping(value = "/action",method = RequestMethod.GET)
-    public String testSpringBoot(){
-        System.out.println("test");
-        return "index";
+    @Autowired
+    private UserService userService;
+
+
+    // 进入注册页面
+    @RequestMapping(path = "/register", method = RequestMethod.GET)
+    public String getRegisterPage(){
+        return "register";
+    }
+
+    //注册
+    @RequestMapping(path = "/register", method = RequestMethod.POST)
+    public String register(Model model, User user) {
+        Map<String, Object> map;
+        map = userService.register(user);
+        if (map == null || map.isEmpty()) {
+            model.addAttribute("msg", "注册成功");
+            model.addAttribute("target", "/index");
+            return "register-result";
+        }
+        else {
+            model.addAttribute("usernameMsg", map.get("usernameMsg"));
+            model.addAttribute("passwordMsg", map.get("passwordMsg"));
+            model.addAttribute("emailMsg", map.get("emailMsg"));
+            return "register";
+        }
+    }
+
+
+    // 进入登录页面
+    @RequestMapping(path = "/login", method = RequestMethod.GET)
+    public String getLoginPage(){
+        return "login";
+    }
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public String login(String username, String password, Model model, HttpSession session, HttpServletResponse response) {
+        int expiredSeconds = 3600 * 24;
+        Map<String, Object> map = userService.login(username, password, expiredSeconds);
+        if (map.containsKey("ticket")) {
+            Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
+            cookie.setPath("");
+            cookie.setMaxAge(expiredSeconds);
+            response.addCookie(cookie);
+            return "redirect:/index";
+        }else{
+            model.addAttribute("usernameMsg", map.get("usernameMsg"));
+            model.addAttribute("passwordMsg", map.get("passwordMsg"));
+            return "login";
+        }
+    }
+
+    @RequestMapping(path = "/logout", method = RequestMethod.GET)
+    public String logout(@CookieValue("ticket") String ticket){
+        userService.logout(ticket);
+        return "redirect:/login";
     }
 
 }
