@@ -1,4 +1,7 @@
 #encoding:utf-8
+'''
+pymysql封装
+'''
 import pymysql
 import datetime
 from crawl.db_config import localSourceConfig as localConfig

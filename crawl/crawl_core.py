@@ -1,5 +1,6 @@
 # encoding:utf-8
 '''
+多线程 + xpath + 正则匹配 进行爬虫
 1. 先爬取候选url，形成urlList
 2. 根据urlList去爬取会议的具体数据
 '''
@@ -11,12 +12,13 @@ from lxml import etree
 import threading
 
 threadLock = threading.Lock()
+# 页码
 page = 1
 
 
 def getUrlList(pageIndex):
-    '''获取候选url'''
-    url = "http://www.wikicfp.com/cfp/call?conference=networking&page=" + str(pageIndex)
+    '''获取候选url（候选会议详情页）'''
+    url = "http://www.wikicfp.com/cfp/call?conference=computer%20science&page=" + str(pageIndex)
     try:
         r = requests.get(url, timeout=10)
     except requests.exceptions.RequestException as e:
@@ -37,7 +39,7 @@ def getUrlList(pageIndex):
 
 
 def getMainPage(url):
-    '''获取要爬取的页面'''
+    '''获取要爬取的会议详细页'''
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36'
     headers = {'User-Agent': user_agent}
     html = None

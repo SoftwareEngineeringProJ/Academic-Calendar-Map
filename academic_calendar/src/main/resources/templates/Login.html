@@ -6,25 +6,18 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <!-- ElegantFonts CSS -->
-    <link rel="stylesheet" href="css/elegant-fonts.css">
-
+    <link rel="stylesheet" href="/css/elegant-fonts.css">
     <!-- themify-icons CSS -->
-    <link rel="stylesheet" href="css/themify-icons.css">
-
+    <link rel="stylesheet" href="/css/themify-icons.css">
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/swiper.min.css">
-
+    <link rel="stylesheet" href="/css/swiper.min.css">
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="/css/style.css">
     <style type="text/css">
         body {
             background: #DADADA url("images/bg1.jpg") no-repeat;
@@ -90,16 +83,16 @@
                     <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
                         <nav class="site-navigation flex justify-content-end align-items-center">
                             <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
-                                <li class="current-menu-item"><a th:href="@{/index}">首页</a></li>
-                                <li><a href="conference.html">查询会议</a></li>
-                                <li><a href="add.html">添加会议</a></li>
-                                <li><a href="/action">关于我们</a></li>
+                                <li><a href="/index">首页</a></li>
+                                <li><a href="/conference/search">查询会议</a></li>
+                                <li><a href="/conference/add">添加会议</a></li>
+                                <li><a href="/aboutUs">关于我们</a></li>
                             </ul>
                         </nav><!-- .site-navigation -->
                     </div><!-- .col -->
                 </div><!-- .row -->
             </div><!-- .container -->
-        </div><!-- .nav-bar -->
+        </div  ><!-- .nav-bar -->
     </header><!-- .site-header -->
 </div><!-- .page-header -->
 
@@ -129,7 +122,7 @@
                    th:class="|form-control fa fa-user-circle ${passwordMsg!=null?'is-invalid':''}|" required>
             <div class="invalid-feedback" align="left" th:text="'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+${passwordMsg}">反馈信息</div>
         </div>
-        <div style="float:right"><a href="#" style="text-decoration: none">忘记密码&nbsp&nbsp&nbsp&nbsp&nbsp</a></div>
+        <div style="float:right"><a href="/forget" style="text-decoration: none">忘记密码&nbsp&nbsp&nbsp&nbsp&nbsp</a></div>
         <input type="submit" value="登录" class="submit" align="center">
         <br>
 

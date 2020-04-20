@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 登录所用控制器
+ * 登录、注册、忘记密码 所用控制器
  */
 @Controller
 public class LoginController {
@@ -71,10 +71,17 @@ public class LoginController {
         }
     }
 
+    // 登出
     @RequestMapping(path = "/logout", method = RequestMethod.GET)
     public String logout(@CookieValue("ticket") String ticket){
         userService.logout(ticket);
         return "redirect:/login";
+    }
+
+    //忘记密码，邮箱找回
+    @RequestMapping(path = "/forget", method = RequestMethod.GET)
+    public String findBack() {
+        return "findback-password";
     }
 
 }

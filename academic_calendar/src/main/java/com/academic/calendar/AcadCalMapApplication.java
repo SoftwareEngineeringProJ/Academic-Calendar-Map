@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * springboot运行文件，即程序入口
+ * 入口
  */
 
 @SpringBootApplication
