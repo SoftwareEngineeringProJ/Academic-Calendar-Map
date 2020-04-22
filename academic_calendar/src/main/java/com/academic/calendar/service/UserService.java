@@ -2,8 +2,8 @@ package com.academic.calendar.service;
 
 import com.academic.calendar.dao.LoginTicketDao;
 import com.academic.calendar.dao.UserDao;
-import com.academic.calendar.domain.LoginTicket;
-import com.academic.calendar.domain.User;
+import com.academic.calendar.entity.LoginTicket;
+import com.academic.calendar.entity.User;
 import com.academic.calendar.util.CommonUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

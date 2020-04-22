@@ -1,6 +1,6 @@
 package com.academic.calendar.dao;
 
-import com.academic.calendar.domain.User;
+import com.academic.calendar.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;

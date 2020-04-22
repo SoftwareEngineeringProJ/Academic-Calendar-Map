@@ -119,13 +119,27 @@
 
         <div class="row">
             <div class="col-12">
-<!--                <div class="about-heading">-->
-<!--                    <h2 class="entry-title">Welcome to Ezuca</h2>-->
+                <div class="about-heading">
+                    <h2 class="entry-title" th:text="${conferenceInfo.conference}">Welcome to Ezuca</h2>
+                    <p >
+                        <span class="fa fa-link">&nbspLink: &nbsp</span> <span> <a th:href="${conferenceInfo.link}" th:text="${' ' + conferenceInfo.link}"></a></span>
+                    </p>
+                    <p >
+                        <span class="fa fa-calendar">&nbspTime: &nbsp</span><span th:text="${' ' + conferenceInfo.startTime + ' - ' + conferenceInfo.endTime}"></span>
+                    </p>
+                    <p >
+                        <span class="fa fa-calendar">&nbspSubmission Deadline: &nbsp</span><span th:text="${' ' + conferenceInfo.submissionDeadline}"></span>
+                    </p>
+                    <p >
+                        <span class="fa fa-location-arrow">&nbspLocation: &nbsp</span><span th:text="${' ' + conferenceInfo.location}"></span>
+                    </p>
+                    <p >
+                        <span class="fa fa-ticket">&nbspCategory: &nbsp</span><span th:text="${' ' + conferenceInfo.categories}"></span>
+                    </p>
+                </div><!-- .about-heading -->
+            </div><!-- .col -->
 
-<!--                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>-->
-<!--                </div>&lt;!&ndash; .about-heading &ndash;&gt;-->
-<!--            </div>&lt;!&ndash; .col &ndash;&gt;-->
-<!--            googlemap-->
+
             <div class="col-12 col-lg-12">
                 <div class="contact-gmap">
                     <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAyCkIjViJ_7vt5PMIHai_NjcdR64QYycw&q=Space+Needle,Seattle+WA" allowfullscreen></iframe>
@@ -150,9 +164,9 @@
 
                             <h5>学术日历与地图 </h5>
 
-                            <p class="footer-copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <p class="footer-copyright">
                                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
                         </div><!-- .foot-about -->
                     </div><!-- .col -->
 
@@ -201,6 +215,10 @@
     <script type='text/javascript' src='/js/masonry.pkgd.min.js'></script>
     <script type='text/javascript' src='/js/jquery.collapsible.min.js'></script>
     <script type='text/javascript' src='/js/custom.js'></script>
+    <!--    下拉菜单依赖的js-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

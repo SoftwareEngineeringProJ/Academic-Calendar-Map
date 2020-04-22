@@ -62,7 +62,7 @@
                                             <span>用户:</span><span th:utext="${alreadyLoginUser.username}">xxx</span>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="site/profile.html">个人中心</a>
+                                            <a class="dropdown-item" th:href="@{/user/profile}">个人中心</a>
                                             <a class="dropdown-item" th:href="@{/user/setting}">账号设置</a>
                                             <a class="dropdown-item" th:href="@{/logout}">退出登录</a>
                                             <div class="dropdown-divider"></div>

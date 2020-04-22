@@ -2,9 +2,9 @@
 
 ## 实现功能
 
-- [ ] 用户管理
+- [x] 用户管理
 
-- [ ] 会议管理
+- [x] 会议管理
 
 - [ ] 会议加入到用户日程中
 
@@ -12,7 +12,12 @@
 
 ## 技术栈
 
-* SpringBoot + MyBatis + MYSQL
+* SpringBoot + MyBatis + MYSQL + Google API
+* 待考虑技术和中间件
+
+  * [ ] ElasticSearch全文检索
+  * [ ] Redis做一层缓存
+  * [ ] 若最终部署，考虑nginx负载均衡，以及部分设想高并发条件下的优化
 
 
 
@@ -26,6 +31,13 @@
 * 4-24： 第一次迭代
 
 
+
+## 测试时运行说明
+
+- 先运行.SQL文件，建立必备数据库
+- 程序中application.properties中修改相关配置，主要是修改数据库连接相关
+- 运行 SpringBoot 程序，使用 localhost:8080 即可访问
+- 若后期使用 redis，es 等，需先保证中间件运行
 
 
 

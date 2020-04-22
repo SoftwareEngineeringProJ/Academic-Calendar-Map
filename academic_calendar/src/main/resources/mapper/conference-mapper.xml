@@ -18,11 +18,46 @@
         values(#{conference},#{link},#{categories},#{startTime},#{endTime},#{location},#{submissionDeadline})
     </insert>
 
-    <select id="selectConferenceByName" resultType="Conference">
+    <select id="selectConferenceByName" resultType="Conference" parameterType="java.lang.String">
         select <include refid="selectFields"></include>
         from conference
         where conference = #{conference}
     </select>
 
+    <select id="selectConferenceByCate" resultType="Conference">
+        select <include refid="selectFields"></include>
+        from conference
+        where categories like #{category}
+        limit #{offset}, #{limit}
+    </select>
 
+    <select id="selectAllConference" resultType="Conference">
+        select <include refid="selectFields"></include>
+        from conference
+        limit #{offset}, #{limit}
+    </select>
+
+    <select id="selectAllConferenceByName" resultType="Conference">
+        select <include refid="selectFields"></include>
+        from conference
+        where conference like #{conference}
+        limit #{offset}, #{limit}
+    </select>
+
+    <select id="selectConferenceRows" parameterType="java.lang.String" resultType="int">
+        select count(id)
+        from conference
+        where 1 = 1
+        <if test="conference!=null">
+            and conference like #{conference}
+        </if>
+        <if test="category!=null">
+            and categories like #{category}
+        </if>
+    </select>
+
+    <select id="selectConferenceById" resultType="Conference">
+        select * from conference
+        where id=#{id}
+    </select>
 </mapper>

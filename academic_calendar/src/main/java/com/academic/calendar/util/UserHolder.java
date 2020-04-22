@@ -1,7 +1,7 @@
 package com.academic.calendar.util;
 
 
-import com.academic.calendar.domain.User;
+import com.academic.calendar.entity.User;
 import org.springframework.stereotype.Component;
 
 /**

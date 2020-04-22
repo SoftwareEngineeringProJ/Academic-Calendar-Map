@@ -1,9 +1,8 @@
 package com.academic.calendar.controller.interceptor;
 
 
-import com.academic.calendar.dao.LoginTicketDao;
-import com.academic.calendar.domain.LoginTicket;
-import com.academic.calendar.domain.User;
+import com.academic.calendar.entity.LoginTicket;
+import com.academic.calendar.entity.User;
 import com.academic.calendar.service.UserService;
 import com.academic.calendar.util.CommonUtils;
 import com.academic.calendar.util.UserHolder;

@@ -1,11 +1,12 @@
 package com.academic.calendar.service;
 
 import com.academic.calendar.dao.ConferenceDao;
-import com.academic.calendar.domain.Conference;
+import com.academic.calendar.entity.Conference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,7 +34,29 @@ public class ConferenceService {
         return map;
     }
 
-    // 检索会议
+    // 检索全部会议
+    public List<Conference> findConference(int offset, int limit) {
+        return conferenceDao.selectAllConference(offset, limit);
+    }
+
+    // 查询会议记录数
+    public int findConferenceRows(String conference, String category) {
+        return conferenceDao.selectConferenceRows(conference, category);
+    }
+
+    // 根据名称检索
+    public List<Conference> findConferenceByName(String name, int offset, int limit) {
+        return conferenceDao.selectAllConferenceByName(name, offset, limit);
+    }
+
+    // 根据类别检索
+    public List<Conference> findConferenceByCate(String category, int offset, int limit) {
+        return conferenceDao.selectConferenceByCate(category, offset, limit);
+    }
 
 
+    // 根据id查询会议
+    public Conference findConferenceById (int id) {
+        return conferenceDao.selectConferenceById(id);
+    }
 }

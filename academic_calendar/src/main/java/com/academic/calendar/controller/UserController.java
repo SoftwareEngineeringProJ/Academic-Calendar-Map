@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * 用户个人中心，整合GoogleMap和GoogleCalendar使用的控制器
  */
 @Controller
-@RequestMapping(path = "user")
+@RequestMapping(path = "/user")
 public class UserController {
 
     @RequestMapping(path = "/setting", method = RequestMethod.GET)
@@ -16,9 +16,9 @@ public class UserController {
         return "setting";
     }
 
-    @RequestMapping(path = "/personal-center", method = RequestMethod.GET)
+    @RequestMapping(path = "/profile", method = RequestMethod.GET)
     public String getPersonalPage() {
-        return "personal-center";
+        return "profile";
     }
 
 

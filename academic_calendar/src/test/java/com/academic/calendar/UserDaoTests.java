@@ -2,7 +2,7 @@ package com.academic.calendar;
 
 
 import com.academic.calendar.dao.UserDao;
-import com.academic.calendar.domain.User;
+import com.academic.calendar.entity.User;
 import com.academic.calendar.util.CommonUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Date;
 
 /**
  * 用户接口测试

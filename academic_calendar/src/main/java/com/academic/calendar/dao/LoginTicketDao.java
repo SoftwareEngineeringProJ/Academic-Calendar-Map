@@ -1,6 +1,6 @@
 package com.academic.calendar.dao;
 
-import com.academic.calendar.domain.LoginTicket;
+import com.academic.calendar.entity.LoginTicket;
 import org.apache.ibatis.annotations.*;
 
 /**
