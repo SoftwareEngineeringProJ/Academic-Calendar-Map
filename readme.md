@@ -33,11 +33,14 @@
 
 
 ## 测试时运行说明
+- 运行说明
+  - 先运行.SQL文件，建立必备数据库
+  - 程序中application.properties中修改相关配置，主要是修改数据库连接相关
+  - 运行 SpringBoot 程序，使用 localhost:8080 即可访问
+  - 若后期使用 redis，es 等，需先保证中间件运行
+- 数据源获取
+  - 仓库中的SQL脚本含有数据，若要自己爬取，运行crawl/crawl_core.py，环境是Python3.7，依赖库有bs4和lxml
 
-- 先运行.SQL文件，建立必备数据库
-- 程序中application.properties中修改相关配置，主要是修改数据库连接相关
-- 运行 SpringBoot 程序，使用 localhost:8080 即可访问
-- 若后期使用 redis，es 等，需先保证中间件运行
 
 
 
