@@ -16,7 +16,7 @@
 * 具体技术选型：
   * 中间件：Kafka，Redis，Elasticsearch
   * 前端：bootstrap，jquery，ajax，thymeleaf
-  * 后端：spring，springboot，mybatis
+  * 后端：spring，springboot，springmvc，mybatis
   * 数据库：mysql，redis
 
 
