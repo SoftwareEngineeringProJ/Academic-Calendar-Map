@@ -1,10 +1,7 @@
 package com.academic.calendar.dao;
 
 import com.academic.calendar.entity.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 /**
  * 用户相关操作dao
@@ -29,6 +26,10 @@ public interface UserDao {
             "where user_id=#{id}")
     User selectById(int id);
 
-
+    @Update(
+            "update user set password=#{password} "
+            + "where user_id = #{userId}"
+    )
+    int modifyPassword(String password, int userId);
 
 }

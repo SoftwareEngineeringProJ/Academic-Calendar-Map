@@ -115,8 +115,75 @@
                 </div><!-- .breadcrumbs -->
             </div><!-- .col -->
         </div><!-- .row -->
+        <table cellpadding="3" cellspacing="1" align="center" width="110%">
+            <tbody>
+                <tr bgcolor="#CCCCFF">
+                    <td>Conference Event</td>
+                    <td>Time</td>
+                    <td>Location</td>
+                    <td>Deadline</td>
+                    <td></td>
+                    <td>operation</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <b th:each="c:${conference}">
+                    <tr th:bgcolor="${cStat.count%2==1?'#CCFFFF':'#FFFFFF'}" >
+                        <td align="left" th:text="${#strings.substring(c.conference, 0, 30) + '...'}">AHMIS--EI.....</td>
+                        <td align="left" th:text="${c.startTime + ' - ' + c.endTime}">sss</td>
+                        <td align="left" th:text="${c.location}">sxss</td>
+                        <td align="left" th:text="${c.submissionDeadline}"></td>
+                        <td align="left"><a th:href="@{|/conference/detail/${c.id}|}">会议详情</a></td>
+                        <td >
+                            <span>
+                                <input type="hidden" th:value="${c.id}" id="cid1" name="cid1">
+                                <button type="button" class="btn-success btn-sm googlecalendar-btn">加入Google Calendar</button>
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                <input type="hidden" th:value="${c.id}" id="cid2" name="cid2">
+                                <button type="button" class="btn-success btn-sm local-btn">添加到本地</button>
+                            </span>
+                        </td>
 
+                        <td >
+                            <span>
+                                <input type="hidden" id="conferenceId" name="conferenceId" th:value="${c.id}">
+                                <button type="button" class="btn-info btn-sm clear-btn">从收藏中删除</button>
+                            </span>
+                        </td>
+                    </tr>
+                </b>
+            </tbody>
+        </table>
+        <div class="pagination flex flex-wrap justify-content-between align-items-center" th:if="${page.rows>0}" th:fragment="pagination">
+            <div class="col-16 col-lg-10 order-2 order-lg-1 mt-3 mt-lg-0">
+                <ul class="flex flex-wrap align-items-center order-2 order-lg-1 p-0 m-0">
+                    <li>
+                        <a th:href="@{${page.path}(current=1)}"> << </a>
+                    </li>
+                    <li th:class="|${page.current==1?'disabled':''}|">
+                        <a th:href="@{${page.path}(current=${page.current-1})}"><i class="fa fa-angle-left"></i></a>
+                    </li>
+                    <li th:class="|page-item ${i==page.current?'active':''}|" th:each="i:${#numbers.sequence(page.from,page.to)}">
+                        <a th:href="@{${page.path}(current=${i})}" th:text="${i}">1</a>
+                    </li>
+                    <li th:class="|${page.current==page.total?'disabled':''}|">
+                        <a th:href="@{${page.path}(current=${page.current==page.total?page.total:page.current+1})}"><i class="fa fa-angle-right"></i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{${page.path}(current=${page.total})}"> >> </a>
+                    </li>
+                </ul>
+            </div>
 
+            <div class="col-12 flex justify-content-start justify-content-lg-end col-lg-12 order-1 order-lg-2">
+                <div class="pagination-results flex flex-wrap align-content-center">
+                    <p class="m-0">Total <i th:text="${page.rows + '  '}"></i>  results in <i th:text="${page.total + '  '}"></i> pages</p>
+                </div><!-- .pagination-results -->
+            </div>
+        </div><!-- .pagination -->
     </div><!-- .container -->
 
     <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)" width="100%" color=#987cb9 SIZE=10>
@@ -177,13 +244,15 @@
 
     </footer><!-- .site-footer -->
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script type='text/javascript' src='/js/jquery.js'></script>
     <script type='text/javascript' src='/js/swiper.min.js'></script>
     <script type='text/javascript' src='/js/masonry.pkgd.min.js'></script>
     <script type='text/javascript' src='/js/jquery.collapsible.min.js'></script>
     <script type='text/javascript' src='/js/custom.js'></script>
+    <script type="text/javascript" src="/js/profile.js"></script>
     <!--    下拉菜单依赖的js-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 

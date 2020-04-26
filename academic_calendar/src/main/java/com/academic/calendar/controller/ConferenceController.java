@@ -3,7 +3,10 @@ package com.academic.calendar.controller;
 
 import com.academic.calendar.entity.Conference;
 import com.academic.calendar.entity.Page;
+import com.academic.calendar.entity.User;
 import com.academic.calendar.service.ConferenceService;
+import com.academic.calendar.service.SaveService;
+import com.academic.calendar.util.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +28,10 @@ public class ConferenceController {
 
     @Autowired
     private ConferenceService conferenceService;
-
+    @Autowired
+    private SaveService saveService;
+    @Autowired
+    private UserHolder userHolder;
 
     // 获取查询会议界面
     @RequestMapping(path = "/search", method = RequestMethod.GET)
@@ -76,6 +82,12 @@ public class ConferenceController {
     public String getConferenceDetailPage(@PathVariable("conferenceId") int conferenceId ,Model model) {
         // 查询会议详情
         Conference conference = conferenceService.findConferenceById(conferenceId);
+        User user = userHolder.getUser();
+        if (user != null) {
+            model.addAttribute("hasAdded", hasAdded(user.getUserId(), conferenceId));
+        } else {
+            model.addAttribute("hasAdded", false);
+        }
         model.addAttribute("conferenceInfo", conference);
         return "detail";
     }
@@ -129,7 +141,9 @@ public class ConferenceController {
     }
 
 
-
+    private boolean hasAdded(int userId, int conferenceId) {
+        return saveService.isAdded(userId, conferenceId);
+    }
 
 
 }

@@ -113,4 +113,24 @@ public class UserService {
     public User findUserById(int id) {
         return userDao.selectById(id);
     }
+
+    // 修改密码，忘记密码的接口
+    public Map<String, Object> editPassword(int userId, String oldPwd, String newPwd) {
+        Map<String, Object> map = new HashMap<>();
+        User user = userDao.selectById(userId);
+        System.out.println(oldPwd + "," + newPwd);
+        oldPwd = CommonUtils.md5(oldPwd + user.getSalt());
+        if (user.getPassword().equals(oldPwd)) {
+            newPwd = CommonUtils.md5(newPwd + user.getSalt());
+            int i = userDao.modifyPassword(newPwd, userId);
+            if (i == 1) {
+                map.put("msg", "修改密码成功");
+            } else {
+                map.put("msg", "修改密码失败");
+            }
+        } else {
+            map.put("passwordMsg", "原密码不匹配");
+        }
+        return map;
+    }
 }
