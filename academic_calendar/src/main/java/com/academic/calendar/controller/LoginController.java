@@ -4,6 +4,7 @@ import com.academic.calendar.entity.User;
 import com.academic.calendar.service.UserService;
 import com.academic.calendar.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,7 @@ public class LoginController {
         Map<String, Object> map = userService.register(user);
         if (map == null || map.isEmpty()) {
             model.addAttribute("msg", "注册成功");
-            model.addAttribute("target", "/index");
+            model.addAttribute("target", "/login");
             return "register-result";
         }
         else {
@@ -77,6 +78,8 @@ public class LoginController {
     @RequestMapping(path = "/logout", method = RequestMethod.GET)
     public String logout(@CookieValue("ticket") String ticket){
         userService.logout(ticket);
+        SecurityContextHolder.clearContext();
+        //重定向默认get请求
         return "redirect:/login";
     }
 

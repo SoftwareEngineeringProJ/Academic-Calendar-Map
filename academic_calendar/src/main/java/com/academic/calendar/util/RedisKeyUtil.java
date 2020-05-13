@@ -9,6 +9,8 @@ public class RedisKeyUtil {
     private static final String PREFIX_CODE = "code";
     private static final String PREFIX_UV = "uv";
     private static final String PREFIX_DAU = "dau";
+    private static final String PREFIX_USER = "user";
+    private static final String PREFIX_TICKET = "ticket";
 
     // 找回密码 验证码  code:email  -->  value
     public static String getCodeKey(String email) {
@@ -33,6 +35,16 @@ public class RedisKeyUtil {
     // 多日活跃用户  dau:startDate:endDate --> bitmap
     public static String getDAUKey(String startDate, String endDate) {
         return PREFIX_DAU + SPLIT + startDate + SPLIT + endDate;
+    }
+
+    //登录凭证
+    public static String getTicketKey(String ticket) {
+        return PREFIX_TICKET + SPLIT + ticket;
+    }
+
+    // 缓存用户
+    public static String getUserKey(int userId) {
+        return PREFIX_USER + SPLIT + userId;
     }
 
 }

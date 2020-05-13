@@ -43,5 +43,9 @@ public class HomeController {
         return "redirect:/index#aboutus";
     }
 
-
+    // 权限不足
+    @RequestMapping(path = "denied", method = RequestMethod.GET)
+    public String getDenied() {
+        return "/error/404";
+    }
 }

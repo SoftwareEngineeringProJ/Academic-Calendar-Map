@@ -5,26 +5,25 @@ import com.academic.calendar.dao.UserDao;
 import com.academic.calendar.entity.LoginTicket;
 import com.academic.calendar.entity.User;
 import com.academic.calendar.util.CommonUtils;
+import com.academic.calendar.util.Constant;
 import com.academic.calendar.util.MailUtil;
 import com.academic.calendar.util.RedisKeyUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
  * 用户业务层
  */
 @Service
-public class UserService {
+public class UserService implements Constant {
     @Autowired
     private UserDao userDao;
     @Autowired
@@ -108,7 +107,9 @@ public class UserService {
         loginTicket.setTicket(CommonUtils.generateUUID());
         loginTicket.setStatus(1);
         loginTicket.setExpired(new Date(System.currentTimeMillis() + expiredSeconds * 1000));
-        loginTicketDao.insertLoginTicket(loginTicket);
+//        loginTicketDao.insertLoginTicket(loginTicket);
+        String redisKey = RedisKeyUtil.getTicketKey(loginTicket.getTicket());
+        redisTemplate.opsForValue().set(redisKey, loginTicket);         //redis会把对象序列化为json字符串保存
         map.put("ticket", loginTicket.getTicket());
         return map;
     }
@@ -116,28 +117,42 @@ public class UserService {
 
     //退出登录，status置0
     public void logout(String ticket){
-        loginTicketDao.updateStatus(ticket, 0);
+        String redisKey = RedisKeyUtil.getTicketKey(ticket);
+        LoginTicket loginTicket = (LoginTicket) redisTemplate.opsForValue().get(redisKey);
+        loginTicket.setStatus(0);
+        redisTemplate.opsForValue().set(redisKey, loginTicket);
     }
 
     // 查询loginticket，简单来说就是作为业务层中转
     public LoginTicket findLoginTicket(String ticket) {
-        return loginTicketDao.selectByTicket(ticket);
+        String redisKey = RedisKeyUtil.getTicketKey(ticket);
+        return (LoginTicket) redisTemplate.opsForValue().get(redisKey);
     }
 
-    // 查询User，简单来说就是作为业务层中转
+    // 查询User，使用redis优化
     public User findUserById(int id) {
-        return userDao.selectById(id);
+//        return userDao.selectById(id);
+        User user = getCache(id);
+        if (user == null) {
+            user = initCache(id);
+        }
+        return user;
     }
 
     // 修改密码，忘记密码的接口
     public Map<String, Object> editPassword(int userId, String oldPwd, String newPwd) {
         Map<String, Object> map = new HashMap<>();
-        User user = userDao.selectById(userId);
+//        User user = userDao.selectById(userId);
+        User user = getCache(userId);
+        if (user == null) {
+            user = initCache(userId);
+        }
         System.out.println(oldPwd + "," + newPwd);
         oldPwd = CommonUtils.md5(oldPwd + user.getSalt());
         if (user.getPassword().equals(oldPwd)) {
             newPwd = CommonUtils.md5(newPwd + user.getSalt());
             int i = userDao.modifyPassword(newPwd, userId);
+            clearCache(userId);
             if (i == 1) {
                 map.put("msg", "修改密码成功");
             } else {
@@ -201,10 +216,47 @@ public class UserService {
         // 修改密码
         password = CommonUtils.md5(password + user.getSalt());
         int i = userDao.modifyPassword(password, user.getUserId());
+        clearCache(user.getUserId());
         if (i != 1) {
             map.put("passwordMsg", "修改密码失败");
             return map;
         }
         return map;
+    }
+
+    // 缓存用户信息 ，先查缓存，缓存查不到再查mysql
+    // 1. 优先从缓存中取值
+    private User getCache(int userId) {
+        String redisKey = RedisKeyUtil.getUserKey(userId);
+        return (User) redisTemplate.opsForValue().get(redisKey);
+    }
+    // 2. 取不到时就初始化缓存数据，取到则直接返回
+    private User initCache(int userId) {
+        User user = userDao.selectById(userId);
+        String redisKey = RedisKeyUtil.getUserKey(userId);
+        redisTemplate.opsForValue().set(redisKey, user, 3600, TimeUnit.SECONDS);
+        return user;
+    }
+    // 3. 数据变更时，清除缓存数据
+    private void clearCache(int userId) {
+        String redisKey = RedisKeyUtil.getUserKey(userId);
+        redisTemplate.delete(redisKey);
+    }
+
+    // 对用户权限做适配
+    public Collection<? extends GrantedAuthority> getAuthorities(int userId) {
+        User user = this.findUserById(userId);
+        List<GrantedAuthority> list = new ArrayList<>();
+        list.add(new GrantedAuthority() {
+            @Override
+            public String getAuthority() {
+                switch (user.getRole()) {
+                    case 0: return AUTHORITY_USER;
+                    case 1: return AUTHORITY_ADMIN;
+                }
+                throw new IllegalArgumentException("unknown authority");
+            }
+        });
+        return list;
     }
 }

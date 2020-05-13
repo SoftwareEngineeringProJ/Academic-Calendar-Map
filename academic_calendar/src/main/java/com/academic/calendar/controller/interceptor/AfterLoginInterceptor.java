@@ -8,6 +8,10 @@ import com.academic.calendar.service.UserService;
 import com.academic.calendar.util.CommonUtils;
 import com.academic.calendar.util.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,13 +37,20 @@ public class AfterLoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String ticket = CommonUtils.getValueFromCookie(request, "ticket");
-        if (ticket != null) {
-            // 处理 ticket伪造，ticket不存在
+        if (ticket != null){
+            //2. 查询凭证
             LoginTicket loginTicket = userService.findLoginTicket(ticket);
-            // 若对应ticket已登录状态
-            if (loginTicket != null && loginTicket.getStatus() == 1 && loginTicket.getExpired().after(new Date())) {
+            //3. 检查凭证是否有效
+            if (loginTicket != null && loginTicket.getStatus() == 1 && loginTicket.getExpired().after(new Date())){
+                //4. 根据凭证查询用户
                 User user = userService.findUserById(loginTicket.getUserId());
+                //5. 在本次请求中持有用户，即存user。但要在多线程隔离中存放，避免多线程发送冲突
                 userHolder.setUser(user);
+                //6. 构建用户认证的结果，并存入SecurityContext，以便于Security进行授权
+                Authentication authentication = new UsernamePasswordAuthenticationToken(
+                        user, user.getPassword(), userService.getAuthorities(user.getUserId())
+                );
+                SecurityContextHolder.setContext(new SecurityContextImpl(authentication));
             }
         }
         return true;
@@ -52,15 +63,11 @@ public class AfterLoginInterceptor implements HandlerInterceptor {
         if (user != null && modelAndView != null) {
             modelAndView.addObject("alreadyLoginUser", user);
         }
-        int unreadRows = 0;
-        if (user != null && modelAndView != null) {
-            unreadRows = noticeService.findUnreadRows(user.getUserId());
-            modelAndView.addObject("unreadRows", unreadRows);
-        }
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         userHolder.clear();
+        SecurityContextHolder.clearContext();
     }
 }

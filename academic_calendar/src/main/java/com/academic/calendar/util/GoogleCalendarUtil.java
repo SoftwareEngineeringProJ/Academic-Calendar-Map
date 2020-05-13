@@ -101,6 +101,5 @@ public class GoogleCalendarUtil {
         c.setEndTime("2020-06-30");
         c.setLocation("suzhou,China");
         googleCalendarUtil.addEventToCalendar(c);
-
     }
 }

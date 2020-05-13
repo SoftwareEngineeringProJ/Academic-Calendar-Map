@@ -126,7 +126,8 @@
 									2019-04-28 14:13:25</span>
                 </h6>
                 <div th:if="${map.notice.type=='update'}">
-                    你收藏的会议 <i th:text="${#strings.substring(map.conf.conference, 0, 30) + '...'}" class="text-primary">xxx...</i>  信息发生了更新，
+                    你收藏的会议 <i th:text="${#strings.length(map.conf.conference)>35?#strings.substring(map.conf.conference, 0, 30) + '...':map.conf.conference}"
+                              class="text-primary">xxx...</i>  信息发生了更新，
                     <a th:href="@{|/notice/read/${map.notice.id}/${map.conf.id}|}">点击查看</a>
                     <ul class="d-inline font-size-12 float-right">
                         <li class="d-inline ml-2">
@@ -141,7 +142,7 @@
                 </div>
 
                 <div th:if="${map.notice.type=='insert'}">
-                    有新录入的会议啦： <i th:text="${#strings.substring(map.conf.conference, 0, 30) + '...'}" class="text-primary">xxx...</i>，
+                    有新录入的会议啦： <i th:text="${#strings.length(map.conf.conference)>35?#strings.substring(map.conf.conference, 0, 30) + '...':map.conf.conference}" class="text-primary">xxx...</i>，
                     <a th:href="@{|/notice/read/${map.notice.id}/${map.conf.id}|}">点击查看</a>
                     <ul class="d-inline font-size-12 float-right">
                         <li class="d-inline ml-2">
@@ -193,7 +194,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="foot-about">
-                        <a class="foot-logo" href="#"><img src="images/hit.jpg" alt=""></a>
+                        <a class="foot-logo" href="#"><img src="/images/hit.jpg" alt=""></a>
 
                         <h5>学术日历与地图 </h5>
 
