@@ -7,17 +7,17 @@
 - [x] 用户收藏会议功能，包括会议收藏，删除收藏等
 - [x] Google Map，Google Calendar调用，以及保存会议日程到本地
 - [x] ElasticSearch全文检索会议信息部分
-- [x] 基于kafka的消息通知功能
-- [x] 基于Redis和echarts的网站统计功能
+- [x] 基于Kafka的消息通知功能
+- [x] 基于Redis和Echarts的网站统计功能
 
 ## 技术栈
 
 * SpringBoot + MyBatis + MYSQL + Google API
 * 具体技术选型：
   * 中间件：Kafka，Redis，Elasticsearch
-  * 前端：bootstrap，jquery，ajax，thymeleaf，echarts
-  * 后端：spring，springboot，springmvc，mybatis
-  * 数据库：mysql，redis
+  * 前端：bootstrap，Jquery，ajax，Thymeleaf，Echarts
+  * 后端：Spring，SpringBoot，SpringMVC，MyBatis
+  * 数据库：MYSQL，Redis
 
 
 
@@ -48,10 +48,10 @@
 
 ## 测试时运行说明
 - 运行说明
-  - 先运行.SQL文件，建立必备数据库
+  - 先运行SQL文件，建立必备数据库，同时需要安装好Redis
   - 程序中application.properties中修改相关配置，主要是修改数据库连接相关
+  - 运行中间件Kafka，Elasticsearch（使用6.x版本）
   - 运行 SpringBoot 程序，使用 localhost:8080 即可访问
-  - 若后期使用 redis，es 等，需先保证中间件运行
 - 数据源获取
   - 仓库中的SQL脚本含有数据，若要自己爬取，运行crawl/crawl_core.py，环境是Python3.7，依赖库有bs4和lxml
 
@@ -60,7 +60,7 @@
 ## 待办：
 
 - [ ] 部分死链和静态页面设计不完善的地方，以及页面美化
-- [ ] 权限控制和认证，如部分登录后才能展示页面可以直接访问等，这一部不太想用拦截器做了，后期引入spring security可以解决
+- [ ] 权限控制和认证，如部分登录后才能展示页面可以直接访问等，这一部不太想用拦截器做了，后期引入Spring Security可以解决
 - [ ] 改善架构，实现高可用
 
 
