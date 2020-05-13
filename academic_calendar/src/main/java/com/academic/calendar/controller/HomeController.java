@@ -1,7 +1,12 @@
 package com.academic.calendar.controller;
 
+import com.academic.calendar.entity.User;
+import com.academic.calendar.service.NoticeService;
+import com.academic.calendar.util.UserHolder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.object.SqlQuery;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,9 +20,20 @@ import java.util.Queue;
 @Controller
 public class HomeController {
 
+    @Autowired
+    private NoticeService noticeService;
+    @Autowired
+    private UserHolder userHolder;
+
     // 进入主页
     @RequestMapping(path = "/index", method = RequestMethod.GET)
-    public String getHomePage(){
+    public String getHomePage(Model model){
+        User user = userHolder.getUser();
+        int unreadRows = 0;
+        if (user != null) {
+            unreadRows = noticeService.findUnreadRows(user.getUserId());
+        }
+        model.addAttribute("unreadRows", unreadRows);
         return "index";
     }
 

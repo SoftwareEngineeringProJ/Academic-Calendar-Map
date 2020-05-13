@@ -1,6 +1,6 @@
 package com.academic.calendar;
 
-import com.academic.calendar.entity.Conference;
+import com.academic.calendar.entity.ConferenceES;
 import com.academic.calendar.service.CalendarService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,12 +20,12 @@ public class CalendarTests {
 
     @Test
     public void testCalendar() throws IOException {
-        Conference c = new Conference();
-        c.setId(121);
-        c.setConference("HITWxH 2020:xxxxxxxxxxxxxsacxxxxxxxxxxxx");
-        c.setStartTime("2020-5-29");
-        c.setEndTime("2020-06-02");
+        ConferenceES c = new ConferenceES();
+        c.setId(1231);
+        c.setConference("HITdasxWxH  ccx 2020:xxxxxxxxxxxxxsacxxxxxxxxxxxx");
+        c.setStartTime("2020-6-29");
+        c.setEndTime("2020-06-30");
         c.setLocation("suzhou,China");
-        calendarService.grabEvents(c);
+//        calendarService.grabEvents(c);
     }
 }

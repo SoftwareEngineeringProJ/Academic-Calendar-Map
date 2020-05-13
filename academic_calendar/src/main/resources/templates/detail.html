@@ -24,28 +24,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/style.css">
-
-<!--    <script>-->
-<!--        function initialize()-->
-<!--        {-->
-<!--            var mapProp = {-->
-<!--                center: new google.maps.LatLng(51.508742,-0.120850),-->
-<!--                zoom:7,-->
-<!--                mapTypeId: google.maps.MapTypeId.ROADMAP-->
-<!--            };-->
-<!--            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);-->
-<!--        }-->
-
-<!--        function loadScript()-->
-<!--        {-->
-<!--            var script = document.createElement("script");-->
-<!--            script.type = "text/javascript";-->
-<!--            script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBBjdnRwVfKwkLLTUkJbnzLJfnKHGFWL4c&sensor=false&callback=initialize";-->
-<!--            document.body.appendChild(script);-->
-<!--        }-->
-
-<!--        window.onload = loadScript;-->
-<!--    </script>-->
+    <link rel="stylesheet" href="/css/toastr.css">
     <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=BpS9lu3iyWYAFL8ems8VZZVYNayuA5Yf"></script>
 
 
@@ -168,15 +147,68 @@
                             th:text="${hasAdded?'取消收藏':'添加到我的收藏'}">添加到我的收藏</button>
                         </span>
                         <span>
-                            <input type="hidden" th:value="${conferenceInfo.id}">
-                            <button type="button" class="btn btn-info btn-sm mr-5 add-btn">
+                            <button type="button" class="btn btn-info btn-sm mr-5">
                                 <a href="Mailto:sjy1933794630@gmail.com?Subject=会议信息反馈&Body=会议信息反馈" style="text-decoration: none;color: white">提交会议异常信息</a>
-                                </button>
+                            </button>
+                        </span>
+                        <span>
+                            <button type="button" class="btn btn-info btn-sm mr-5 edit-btn" data-toggle="modal" data-target="#editModal"
+                            th:if="${user!=null&&user.role==1}">
+                                更新会议信息
+                            </button>
                         </span>
                     </p>
                 </div><!-- .about-heading -->
             </div><!-- .col -->
-
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">更新会议信息</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="/conference/edit" name="conferenceForm">
+                                <input type="hidden" th:value="${conferenceId}" name="id" id="id">
+                                <div class="form-group">
+                                    <label for="conference" class="col-form-label">会议名称</label>
+                                    <textarea type="text" class="form-control" name="conference" rows="2" id="conference" th:text="${conferenceInfo.conference}"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="link" class="col-form-label">会议链接</label>
+                                    <input type="text" class="form-control" name="link" id="link" th:value="${conferenceInfo.link}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="startTime" class="col-form-label">会议开始时间</label>
+                                    <input type="text" class="form-control" name="startTime" id="startTime" th:value="${conferenceInfo.startTime}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="endTime" class="col-form-label">会议结束时间</label>
+                                    <input type="text" class="form-control" name="endTime" id="endTime" th:value="${conferenceInfo.endTime}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="submissionDeadline" class="col-form-label">投稿截止时间</label>
+                                    <input type="text" class="form-control" name="submissionDeadline" id="submissionDeadline" th:value="${conferenceInfo.submissionDeadline}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="location" class="col-form-label">会议召开地点</label>
+                                    <input type="text" class="form-control" name="location" id="location" th:value="${conferenceInfo.location}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="categories" class="col-form-label">主题</label>
+                                    <input type="text" class="form-control" name="categories" id="categories" th:value="${conferenceInfo.categories}">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="sendBtn" onclick="document.conferenceForm.submit()">确认</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="col-12 col-lg-12">
                 <div class="contact-gmap">
@@ -250,20 +282,65 @@
         // 百度地图API功能
         var lo = [[${conferenceInfo.location}]];
         var map = new BMap.Map("baiduMap");  // 创建Map实例
-        map.centerAndZoom(lo,8);      // 初始化地图,用城市名设置地图中心点
+        map.centerAndZoom(lo, 8);      // 初始化地图,用城市名设置地图中心点
         map.enableScrollWheelZoom();
     </script>
-<!--    <script type='text/javascript' src='/js/jquery.js'></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 
     <script type='text/javascript' src='/js/swiper.min.js'></script>
     <script type='text/javascript' src='/js/masonry.pkgd.min.js'></script>
     <script type='text/javascript' src='/js/jquery.collapsible.min.js'></script>
     <script type='text/javascript' src='/js/custom.js'></script>
-    <script type="text/javascript" src="/js/detail.js"></script>
+    <script src="/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.options = {
+            positionClass: "toast-center-center"
+        }
+    </script>
     <!--    下拉菜单依赖的js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
+    <script>
+        $(function(){
+            $(".add-btn").click(store);
+        });
+
+        function store() {
+            var btn = this;
+            if($(btn).hasClass("btn-info")) {
+                // 添加收藏
+                $.post(
+                    "/store",
+                    {"conferenceId":$(btn).prev().val()},
+                    function(data) {
+                        data = $.parseJSON(data);
+                        if(data.code === 0) {
+                            toastr.success("添加收藏成功，可在个人中心查看");
+                            window.location.reload();
+                        } else {
+                            toastr.error("添加收藏失败，请稍后再试");
+                        }
+                    }
+                );
+            } else {
+                // 取消收藏
+                $.post(
+                    "/clear",
+                    {"conferenceId":$(btn).prev().val()},
+                    function(data) {
+                        data = $.parseJSON(data);
+                        if(data.code === 0) {
+                            toastr.success("取消收藏成功");
+                            window.location.reload();
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                );
+            }
+        }
+
+    </script>
 </body>
 </html>

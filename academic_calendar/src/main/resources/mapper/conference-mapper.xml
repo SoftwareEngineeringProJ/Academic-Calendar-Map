@@ -60,4 +60,11 @@
         select * from conference
         where id=#{id}
     </select>
+
+    <update id="updateConference" parameterType="Conference">
+        update conference set conference=#{conference},
+        link=#{link},categories=#{categories},start_time=#{startTime},end_time=#{endTime},
+        location=#{location},submission_deadline=#{submissionDeadline}
+        where id=#{id}
+    </update>
 </mapper>

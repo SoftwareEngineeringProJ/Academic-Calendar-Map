@@ -101,7 +101,20 @@
             </div><!-- .container -->
         </div><!-- .page-header-overlay -->
     </div><!-- .page-header -->
+
     <div class="container p-5 mt-3 mb-3">
+
+        <div class="position-relative">
+            <!-- 选项 -->
+            <ul class="nav nav-tabs mb-3">
+                <li class="nav-item">
+                    <a class="nav-link position-relative" th:href="@{/user/profile}">收藏会议</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative active" th:href="@{/user/setting}">账户设置</a>
+                </li>
+            </ul>
+        </div>
         <!-- 修改密码 -->
         <h6 class="text-left text-info border-bottom pb-2 mt-5">修改密码</h6>
         <form class="mt-5" th:action="@{/user/setting}" method="post">

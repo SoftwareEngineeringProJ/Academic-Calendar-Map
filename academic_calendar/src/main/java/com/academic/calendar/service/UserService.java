@@ -5,13 +5,20 @@ import com.academic.calendar.dao.UserDao;
 import com.academic.calendar.entity.LoginTicket;
 import com.academic.calendar.entity.User;
 import com.academic.calendar.util.CommonUtils;
+import com.academic.calendar.util.MailUtil;
+import com.academic.calendar.util.RedisKeyUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 用户业务层
@@ -22,8 +29,12 @@ public class UserService {
     private UserDao userDao;
     @Autowired
     private LoginTicketDao loginTicketDao;
-
-
+    @Autowired
+    private TemplateEngine templateEngine;
+    @Autowired
+    private RedisTemplate redisTemplate;
+    @Autowired
+    private MailUtil mailUtil;
 
     //注册业务
     public Map<String, Object> register(User user) {
@@ -60,6 +71,7 @@ public class UserService {
         //无已存在 开始注册
         user.setSalt(CommonUtils.generateUUID().substring(0, 5));
         user.setPassword(CommonUtils.md5(user.getPassword() + user.getSalt()));
+        user.setRole(0);
         userDao.insertUser(user);
         return map;
     }
@@ -78,8 +90,11 @@ public class UserService {
         }
         User user = userDao.selectByName(username);
         if (user == null){
-            map.put("usernameMsg", "该账号不存在");
-            return map;
+            user = userDao.selectByEmail(username);
+            if (user == null) {
+                map.put("usernameMsg", "该账号或邮箱不存在");
+                return map;
+            }
         }
         // 验证密码
         password =CommonUtils.md5(password + user.getSalt());
@@ -130,6 +145,65 @@ public class UserService {
             }
         } else {
             map.put("passwordMsg", "原密码不匹配");
+        }
+        return map;
+    }
+
+    // 查询所有用户
+    public List<User> findAllUser() {
+        return userDao.selectAllUser();
+    }
+
+    // 找回密码-发送邮件
+    public Map<String, Object> sendForgetMail(String email) {
+        Map<String, Object> map = new HashMap<>();
+        Context context = new Context();
+        User user = userDao.selectByEmail(email);
+        if (user == null) {
+            map.put("emailMsg", "该邮箱未被注册");
+            return map;
+        }
+        context.setVariable("email", email);
+        String code = CommonUtils.generateUUID().substring(0, 6);
+        context.setVariable("code", code);
+        // 验证码存入redis，有效期60s
+        String redisKey = RedisKeyUtil.getCodeKey(email);
+        redisTemplate.opsForValue().set(redisKey, code, 60, TimeUnit.SECONDS);
+        // 发邮件
+        String content = templateEngine.process("/mail/forget", context);
+        mailUtil.sendMail(email, "找回密码", content);
+        return map;
+    }
+
+    // 找回密码
+    public Map<String, Object> forgetPwd(String email, String password, String verification) {
+        Map<String, Object> map = new HashMap<>();
+        if (StringUtils.isBlank(verification)) {
+            map.put("codeMsg", "验证码不能为空");
+            return map;
+        }
+        if (StringUtils.isBlank(password)) {
+            map.put("passwordMsg", "密码不能为空");
+            return map;
+        }
+        User user = userDao.selectByEmail(email);
+        if (user == null) {
+            map.put("emailMsg", "该邮箱未被注册");
+            return map;
+        }
+        // 验证码比对
+        String redisKey = RedisKeyUtil.getCodeKey(email);
+        String code = (String) redisTemplate.opsForValue().get(redisKey);
+        if (code == null || !code.equals(verification)) {
+            map.put("codeMsg", "验证码不正确或已过期");
+            return map;
+        }
+        // 修改密码
+        password = CommonUtils.md5(password + user.getSalt());
+        int i = userDao.modifyPassword(password, user.getUserId());
+        if (i != 1) {
+            map.put("passwordMsg", "修改密码失败");
+            return map;
         }
         return map;
     }

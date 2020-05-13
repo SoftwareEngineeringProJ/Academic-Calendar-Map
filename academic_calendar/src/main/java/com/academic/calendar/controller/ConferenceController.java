@@ -2,10 +2,14 @@ package com.academic.calendar.controller;
 
 
 import com.academic.calendar.entity.Conference;
+import com.academic.calendar.entity.Event;
 import com.academic.calendar.entity.Page;
 import com.academic.calendar.entity.User;
+import com.academic.calendar.event.EventProducer;
 import com.academic.calendar.service.ConferenceService;
+import com.academic.calendar.service.NoticeService;
 import com.academic.calendar.service.SaveService;
+import com.academic.calendar.util.Constant;
 import com.academic.calendar.util.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +28,7 @@ import java.util.Map;
  */
 @RequestMapping(path = "/conference")
 @Controller
-public class ConferenceController {
+public class ConferenceController implements Constant {
 
     @Autowired
     private ConferenceService conferenceService;
@@ -32,6 +36,10 @@ public class ConferenceController {
     private SaveService saveService;
     @Autowired
     private UserHolder userHolder;
+    @Autowired
+    private EventProducer eventProducer;
+    @Autowired
+    private NoticeService noticeService;
 
     // 获取查询会议界面
     @RequestMapping(path = "/search", method = RequestMethod.GET)
@@ -54,12 +62,24 @@ public class ConferenceController {
             }
         }
         model.addAttribute("conference", confInfo);
+        User user = userHolder.getUser();
+        int unreadRows = 0;
+        if (user != null) {
+            unreadRows = noticeService.findUnreadRows(user.getUserId());
+        }
+        model.addAttribute("unreadRows", unreadRows);
         return "conference";
     }
 
     // 获取添加会议页面
     @RequestMapping(path = "/add", method = RequestMethod.GET)
-    public String getAddConferencePage() {
+    public String getAddConferencePage(Model model) {
+        User user = userHolder.getUser();
+        int unreadRows = 0;
+        if (user != null) {
+            unreadRows = noticeService.findUnreadRows(user.getUserId());
+        }
+        model.addAttribute("unreadRows", unreadRows);
         return "add.html";
     }
 
@@ -68,8 +88,16 @@ public class ConferenceController {
     public String doAddConference(Model model, Conference conference) {
         Map<String, Object> map = new HashMap<>();
         map = conferenceService.addConference(conference);
+        // 发布通知
+        Event event = new Event();
+        event.setTopic(TOPIC_INSERT_CONFERENCE);
+        event.setConferenceId(conference.getId());
+        eventProducer.fireEvent(event);
         if (map == null || map.isEmpty()) {
             model.addAttribute("msg", "录入会议成功");
+            // 转存ES
+            event.setTopic(TOPIC_STORE_ES);
+            eventProducer.fireEvent(event);
             return "add";
         } else {
             model.addAttribute("msg", map.get("msg"));
@@ -89,6 +117,12 @@ public class ConferenceController {
             model.addAttribute("hasAdded", false);
         }
         model.addAttribute("conferenceInfo", conference);
+        model.addAttribute("user", userHolder.getUser());
+        int unreadRows = 0;
+        if (user != null) {
+            unreadRows = noticeService.findUnreadRows(user.getUserId());
+        }
+        model.addAttribute("unreadRows", unreadRows);
         return "detail";
     }
 
@@ -113,6 +147,12 @@ public class ConferenceController {
         page.setRows(conferenceService.findConferenceRows("%" + keyword + "%", null));
         page.setPath("/conference/search/name?keyword=" + keyword);
         model.addAttribute("conference", confInfo);
+        User user = userHolder.getUser();
+        int unreadRows = 0;
+        if (user != null) {
+            unreadRows = noticeService.findUnreadRows(user.getUserId());
+        }
+        model.addAttribute("unreadRows", unreadRows);
         return "conference";
     }
 
@@ -137,13 +177,44 @@ public class ConferenceController {
             }
         }
         model.addAttribute("conference", confInfo);
+        User user = userHolder.getUser();
+        int unreadRows = 0;
+        if (user != null) {
+            unreadRows = noticeService.findUnreadRows(user.getUserId());
+        }
+        model.addAttribute("unreadRows", unreadRows);
         return "conference";
     }
 
+    // 修改会议
+    @RequestMapping(path = "/edit", method = RequestMethod.POST)
+    public String editConference(Conference conference, Model model) {
+        int i = conferenceService.editConferenceById(conference);
+        // 查询会议详情
+        conference = conferenceService.findConferenceById(conference.getId());
+        User user = userHolder.getUser();
+        if (user != null) {
+            model.addAttribute("hasAdded", hasAdded(user.getUserId(), conference.getId()));
+        } else {
+            model.addAttribute("hasAdded", false);
+        }
+        model.addAttribute("conferenceInfo", conference);
+        model.addAttribute("user", userHolder.getUser());
+        model.addAttribute("conferenceId", conference.getId());
+        // 发布通知
+        Event event = new Event();
+        event.setConferenceId(conference.getId());
+        event.setTopic(TOPIC_UPDATE_CONFERENCE);
+        eventProducer.fireEvent(event);
+        // 转存ES
+        event.setTopic(TOPIC_STORE_ES);
+        eventProducer.fireEvent(event);
+        return "detail";
+    }
 
+    // 是否加入了收藏
     private boolean hasAdded(int userId, int conferenceId) {
         return saveService.isAdded(userId, conferenceId);
     }
-
 
 }

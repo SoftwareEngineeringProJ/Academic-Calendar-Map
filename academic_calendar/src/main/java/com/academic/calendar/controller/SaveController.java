@@ -23,9 +23,7 @@ public class SaveController {
     @ResponseBody
     public String storeConference(int conferenceId) {
         User user = userHolder.getUser();
-        System.out.println(user.getUserId());
         int i = saveService.saveConference(user.getUserId(), conferenceId);
-        System.out.println(i);
         return CommonUtils.getJSONString(0, "添加收藏成功");
     }
 

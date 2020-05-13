@@ -15,7 +15,7 @@ public interface SaveDao {
             "select user_id from save_conference " +
             "where conference_id = #{conferenceId}"
     )
-    int selectUserByConference(int conferenceId);
+    List<Integer> selectUserByConference(int conferenceId);
 
     @Select(
             "select conference_id from save_conference "

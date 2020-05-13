@@ -47,9 +47,9 @@
 
                         <div class="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                             <div class="header-bar-search" >
-                                <form class="flex align-items-stretch">
-                                    <input type="search" placeholder="搜索">
-                                    <button type="submit" value="" class="flex justify-content-center align-items-center"><i class="fa fa-search"></i></button>
+                                <form class="flex align-items-stretch" th:action="@{/es/search}" method="get">
+                                    <label for="keyword"></label><input type="search" id="keyword" name="keyword" placeholder="搜索会议，分类，地点..." th:value="${keyword}">
+                                    <button type="submit" class="flex justify-content-center align-items-center"><i class="fa fa-search"></i></button>
                                 </form>
                             </div><!-- .header-bar-search -->
 
@@ -59,11 +59,15 @@
                                     <li><a th:href="@{/login}" th:if="${alreadyLoginUser==null}">登录</a></li>
                                     <li class="nav-item ml-3 btn-group-vertical dropdown" th:if="${alreadyLoginUser!=null}">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="badge badge-danger" th:if="${unreadRows!=0}" th:text="${unreadRows}">1</span>
                                             <span>用户:</span><span th:utext="${alreadyLoginUser.username}">xxx</span>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" th:href="@{/user/profile}">个人中心</a>
-                                            <a class="dropdown-item" th:href="@{/user/setting}">账号设置</a>
+                                            <a class="dropdown-item" th:href="@{/notice/show}">消息通知
+                                                <span class="badge badge-danger" th:if="${unreadRows!=0}" th:text="${unreadRows}">1</span>
+                                            </a>
+                                            <a class="dropdown-item" th:href="@{/data}" th:if="${alreadyLoginUser.role==1}">网站统计</a>
                                             <a class="dropdown-item" th:href="@{/logout}">退出登录</a>
                                             <div class="dropdown-divider"></div>
                                         </div>
@@ -80,7 +84,7 @@
                     <div class="row">
                         <div class="col-9 col-lg-3">
                             <div class="site-branding">
-                                <h1 class="site-title"><a href="index.html" rel="home">学术<span>日历与地图</span></a></h1>
+                                <h1 class="site-title"><a href="/index" rel="home">学术<span>日历与地图</span></a></h1>
                             </div><!-- .site-branding -->
                         </div><!-- .col -->
 
@@ -214,11 +218,11 @@
 
                         <nav class="courses-menu mt-3 mt-lg-0">
                             <ul class="flex flex-wrap justify-content-md-end align-items-center">
-                                <li class="active"><a href="#">全部</a></li>
-                                <li><a href="#">高性能计算</a></li>
-                                <li><a href="#">计算机网络</a></li>
-                                <li><a href="#">人工智能与模式识别</a></li>
-                                <li><a href="#">理论计算机科学</a></li>
+                                <li class="active"><a th:href="@{/conference/search}">全部</a></li>
+                                <li><a th:href="@{/conference/search}">高性能计算</a></li>
+                                <li><a th:href="@{/conference/search}">计算机网络</a></li>
+                                <li><a th:href="@{/conference/search}">人工智能与模式识别</a></li>
+                                <li><a th:href="@{/conference/search}">理论计算机科学</a></li>
                             </ul>
                         </nav><!-- .courses-menu -->
                     </header><!-- .heading -->
@@ -229,10 +233,10 @@
 
                         <div class="course-content-wrap">
                             <header class="entry-header">
-                                <h2 class="entry-title"><a href="#">CVPR 2020</a></h2>
+                                <h2 class="entry-title"><a href="/conference/detail/888">CVPR 2020</a></h2>
 
                                 <div class="entry-meta flex align-items-center">
-                                    <div class="course-author"><a href="#">Seattle, WA</a></div>
+                                    <div class="course-author"><a href="/conference/detail/888">Seattle, WA</a></div>
 
                                     <div class="course-date">Jun 16 - Jun 20, 2020</div>
                                 </div><!-- .course-date -->
@@ -253,10 +257,10 @@
 
                         <div class="course-content-wrap">
                             <header class="entry-header">
-                                <h2 class="entry-title"><a href="#">AAAI 2020</a></h2>
+                                <h2 class="entry-title"><a href="/conference/detail/3117">AAAI 2020</a></h2>
 
                                 <div class="entry-meta flex align-items-center">
-                                    <div class="course-author"><a href="#">New York, USA</a></div>
+                                    <div class="course-author"><a href="/conference/detail/3117">New York, USA</a></div>
 
                                     <div class="course-date">Feb 7 - Feb 12, 2020</div>
                                 </div><!-- .course-date -->
@@ -277,10 +281,10 @@
 
                         <div class="course-content-wrap">
                             <header class="entry-header">
-                                <h2 class="entry-title"><a href="#">ACM WiSec 2020</a></h2>
+                                <h2 class="entry-title"><a href="/conference/detail/1051">ACM WiSec 2020</a></h2>
 
                                 <div class="entry-meta flex align-items-center">
-                                    <div class="course-author"><a href="#">Linz, Austria</a></div>
+                                    <div class="course-author"><a href="/conference/detail/1051">Linz, Austria</a></div>
 
                                     <div class="course-date">Jul 8 - Jul 10, 2020</div>
                                 </div><!-- .course-date -->
@@ -302,10 +306,10 @@
 
                         <div class="course-content-wrap">
                             <header class="entry-header">
-                                <h2 class="entry-title"><a href="#">ICML 2020</a></h2>
+                                <h2 class="entry-title"><a href="/conference/detail/2783">ICML 2020</a></h2>
 
                                 <div class="entry-meta flex align-items-center">
-                                    <div class="course-author"><a href="#">Vienna,Austria</a></div>
+                                    <div class="course-author"><a href="/conference/detail/2783">Vienna,Austria</a></div>
 
                                     <div class="course-date">Jul 12 - Jul 18, 2020</div>
                                 </div><!-- .course-date -->
@@ -328,10 +332,10 @@
 
                         <div class="course-content-wrap">
                             <header class="entry-header">
-                                <h2 class="entry-title"><a href="#">ECCV 2020</a></h2>
+                                <h2 class="entry-title"><a href="/conference/detail/2545">ECCV 2020</a></h2>
 
                                 <div class="entry-meta flex align-items-center">
-                                    <div class="course-author"><a href="#">Glasgow</a></div>
+                                    <div class="course-author"><a href="/conference/detail/2545">Glasgow</a></div>
 
                                     <div class="course-date">Aug 23 - Aug 28, 2020</div>
                                 </div><!-- .course-date -->
@@ -353,10 +357,10 @@
 
                         <div class="course-content-wrap">
                             <header class="entry-header">
-                                <h2 class="entry-title"><a href="#">ICRA 2020</a></h2>
+                                <h2 class="entry-title"><a href="/conference/detail/3121">ICRA 2020</a></h2>
 
                                 <div class="entry-meta flex align-items-center">
-                                    <div class="course-author"><a href="#">Paris</a></div>
+                                    <div class="course-author"><a href="/conference/detail/3121">Paris</a></div>
 
                                     <div class="course-date">May 31 - Jun 4, 2020</div>
                                 </div><!-- .course-date -->
@@ -387,21 +391,22 @@
                     <header class="heading">
                         <h2 class="entry-title" id="aboutus">关于我们</h2>
 
-                        <p>通过自动或手动汇集，收集主要计算机领域学术会议相关信息，帮助用户编制专属的学术日历与地图</p>
-
-                        <p>支持Google日历与Google地图，带给用户xxx的体验</p>
+                        <p>通过自动或手动汇集，收集主要计算机领域学术会议相关信息，帮助用户编制专属的学术日历与地图！</p>
+                        <p>会议更新信息、新增信息，随时通知用户，用户也可致信管理员提交信息，</p>
+                        <p>添加收藏，随时查看，不用再担心会议时效性短，变动频繁！</p>
+                        <p>支持添加到Google日历，Microsoft日历，支持Google地图，百度地图展示地点，带给用户优秀的体验</p>
                     </header><!-- .heading -->
 
                     <div class="entry-content ezuca-stats">
                         <div class="stats-wrap flex flex-wrap justify-content-lg-between">
                             <div class="stats-count">
-                                5<span>M+</span>
-                                <p>会议信息</p>
+                                10<span>+</span>
+                                <p>会议 分类</p>
                             </div><!-- .stats-count -->
 
                             <div class="stats-count">
-                                30<span>K+</span>
-                                <p>ACTIVE COURSES</p>
+                                3<span>K+</span>
+                                <p>会议 信息</p>
                             </div><!-- .stats-count -->
                         </div><!-- .stats-wrap -->
                     </div><!-- .ezuca-stats -->
@@ -468,10 +473,10 @@
                                 <p>学术会议多，每个会议的主题侧重不同、重要性不同、时间地点都不同</p>
                                 <p>为此编制本学术日历与地图</p>
                                 <br>
-                                <p>通过手动和自动汇集会议相关信息的方式，供用户检索，</p>
-                                <p>用户还可添加到个人日历中，为用户带来便利。</p>
+                                <p>通过手动和自动汇集会议相关信息的方式，提供多种检索方式，供用户检索。</p>
+                                <p>检索会议有详细的会议信息，以及使用百度地图展示会议地点。</p>
                                 <br>
-                                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<br>xxxxxxxxxxxx<br>xxxxxxxxxxxxxxxxxxxxxx</p>
+                                <p>用户可以添加至个人收藏，随时查看！<br>同时可以添加至本地以及谷歌地图，不用担心变动频繁！<br>可以新添会议，同时会议更改信息第一时间通知用户！</p>
                             </div><!-- .entry-content -->
                         </div><!-- .event-content-wrap -->
                     </div><!-- .event-content -->

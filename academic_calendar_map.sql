@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2020-04-22 17:06:59
+Date: 2020-05-13 14:13:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,24 +29,24 @@ CREATE TABLE `conference` (
   `location` varchar(255) DEFAULT NULL,
   `submission_deadline` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3115 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3124 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of conference
 -- ----------------------------
-INSERT INTO `conference` VALUES ('1', 'AHMIS--EI, Scopus  2020 : 2020 Asia Human-Computer Interaction Symposium (AHMIS 2020)--EI Compendex, Scopus', 'http://www.ahmis.net', 'intelligent systems | machine learning | computational intelligence | computer science', '2020-05-29', '2020-05-31', 'Shanghai, China', '2020-04-15');
-INSERT INTO `conference` VALUES ('2', 'JIISIC  2020 : Jornadas Iberoamericanas de IngenierÃ­a de Software e IngenierÃ­a del Conocimiento', 'http://www.jiisic2020.com.co', 'computer science | software engineering | knowledge engineering | informatics', '2020-09-16', '2020-09-18', 'PopayÃ¡n, Colombia', '2020-04-15');
+INSERT INTO `conference` VALUES ('1', 'AHMIS--EI, Scopus  2020 : 2020 Asia Human-Computer Interaction Symposium (AHMIS 2020)--EI Compendex, Scopus ', 'http://www.ahmis.net', 'intelligent systems | machine learning | computational intelligence | computer science', '2020-05-29', '2020-05-31', 'Shanghai, China', '2020-04-15');
+INSERT INTO `conference` VALUES ('2', 'JIISIC 2020 : Jornadas Iberoamericanas de Ingeniería de Software e Ingeniería del ', 'http://www.jiisic2020.com.co', 'computer science | software engineering | knowledge engineering | informatics', '2020-09-16', '2020-09-18', 'bogota, Columbia', '2020-04-15');
 INSERT INTO `conference` VALUES ('3', 'BSCI  2020 : The 2nd ACM International Symposium on Blockchain and  Secure Critical Infrastructure ', 'http://www.cloud-conf.net/bsci/2020/', 'blockchain | cybersecurity | critical infrastructure | computer science', '2020-10-05', '2020-10-09', 'Taipei', '2020-04-15');
 INSERT INTO `conference` VALUES ('4', 'ICWIP--Ei & Scopus  2020 : 2020 3rd International Conference on Watermarking and Image Processing (ICWIP 2020)--Ei Compendex, Scopus', 'http://www.icwip.org/', 'image processing | information technology | multimedia | computer science', '2020-09-25', '2020-09-27', 'Xiamen, China', '2020-04-15');
 INSERT INTO `conference` VALUES ('5', 'ACM--ICCCM--Ei and Scopus  2020 : ACM--2020 The 8th International Conference on Computer and Communications Management (ICCCM 2020)--EI Compendex, Scopus', 'http://www.icccm.org/', 'computer science | communications | computing | information management', '2020-07-17', '2020-07-19', 'Singapore', '2020-04-15');
-INSERT INTO `conference` VALUES ('6', 'ICCMS - Ei & Scopus  2020 : 2020 The 12th International Conference on Computer Modeling and Simulation (ICCMS 2020)--EI Compendex, Scopus', 'http://iccms.org/', 'computer science | computing | modeling | system engineering', '2020-06-23', '2020-06-25', 'Brisbane, Australia', '2020-04-15');
+INSERT INTO `conference` VALUES ('6', 'ICCMS - Ei & Scopus  2020 : 2020 The 12th International Conference on Computer Modeling and Simulation (ICCMS 2020)--EI Compendex, Scopus', 'http://iccms.org/', 'computer science | computing | modeling | system engineering ', '2020-06-23', '2020-06-25', 'Brisbane, Australia', '2020-04-15');
 INSERT INTO `conference` VALUES ('7', 'IPPR  2020 : 6th International Conference on Image Processing and Pattern Recognition', 'https://csit2020.org/ippr/index.html', 'artificial intelligence | robotics | machine learning | computer science', '2020-06-13', '2020-06-14', 'Helsinki, Finland', '2020-04-18');
 INSERT INTO `conference` VALUES ('8', 'IPDCA   2020 : International conference on Parallel, Distributed Computing and Applications', 'https://csit2020.org/ipdca/index.html', 'wireless | networking | distributed computing | communications', '2020-06-13', '2020-06-14', 'Helsinki, Finland', '2020-04-18');
 INSERT INTO `conference` VALUES ('9', 'FCST  2020 : 8th International Conference on Foundations of Computer Science & Technology', 'https://acsit2020.org/fcst/index.html', 'computer science | programming languages | algorithms | technology', '2020-06-27', '2020-06-28', 'Copenhagen, Denmark', '2020-04-18');
 INSERT INTO `conference` VALUES ('10', 'MLT  2020 : International Conference on Machine Learning & Trends ', 'https://icaita2020.org/mlt/index.html', 'machine learning | applications | learning | e-learning ', '2020-07-11', '2020-07-12', 'Vancouver, Canada', '2020-04-18');
 INSERT INTO `conference` VALUES ('11', 'ICICA--ACM, Ei, Scopus  2020 : ACM--2020 The 9th International Conference on Intelligent Computing and Applications (ICICA 2020)--EI Compendex, Scopus', 'http://www.icica.org', 'artificial intelligence | computer science | computing | computational intelligence', '2020-06-23', '2020-06-25', 'Brisbane, Australia', '2020-04-15');
 INSERT INTO `conference` VALUES ('12', 'AHMIS--EI Compendex, Scopus  2020 : 2020 Asia Human-Computer Interaction Symposium (AHMIS 2020)--EI Compendex, Scopus', 'http://www.ahmis.net', 'artificial intelligence | software engineering | computer science | computer vision', '2020-05-29', '2020-05-31', 'Shanghai, China', '2020-04-15');
-INSERT INTO `conference` VALUES ('13', 'AIPR--Ei and Scopus  2020 : 2020 3rd International Conference on Artificial Intelligence and Pattern Recognition (AIPR 2020)--Ei Compendex, Scopus', 'http://www.aipr.net/', 'artificial intelligence | pattern recognition | computer science | software engineering', '2020-09-25', '2020-09-27', 'Huaqiao University, Xiamen, China', '2020-04-15');
+INSERT INTO `conference` VALUES ('13', 'AIPR--Ei and Scopus  2020 : 2020 3rd International Conference on Artificial Intelligence and Pattern Recognition (AIPR 2020)--Ei Compendex, Scopus', 'http://www.aipr.net/', 'artificial intelligence | pattern recognition | computer science | software engineering', '2020-09-25', '2020-09-27', 'Xiamen, China', '2020-04-15');
 INSERT INTO `conference` VALUES ('14', 'ICCEE--Ei, Scopus  2020 : 2020 13th International Conference on Computer and Electrical Engineering (ICCEE 2020)--Scopus, Ei Compendex', 'http://www.iccee.org/', 'computer science | electrical engineering | electronics | control', '2020-07-31', '2020-08-02', 'Beijing, China', '2020-04-15');
 INSERT INTO `conference` VALUES ('15', 'AIET--Scopus, EI  2020 : 2020 International Conference on Artificial Intelligence in Education Technology (AIET 2020)--Scopus, EI Compendex', 'http://www.aiet.org/', 'intelligent systems | computer science | information technology | e-education', '2020-07-19', '2020-07-21', 'Shanghai, China', '2020-04-15');
 INSERT INTO `conference` VALUES ('16', 'ICCCI--IEEE, Ei & Scopus  2020 : IEEE--2020 The 2nd International Conference on Computer Communication and the Internet (ICCCI 2020)--Ei Compendex & Scopus', 'http://iccci.org', 'computer science | communications | internet | software engineering', '2020-06-26', '2020-06-29', 'Nagoya, Japan', '2020-04-15');
@@ -62,7 +62,7 @@ INSERT INTO `conference` VALUES ('28', 'MAT   2020 : 6th International Conferenc
 INSERT INTO `conference` VALUES ('29', 'CCSEA  2020 : 10th International Conference on Computer Science, Engineering and Applications', 'https://ccsea2020.org/index.html', 'computer science | networking and communications | data mining | information technology', 'N/A', 'N/A', 'N/A', '2020-04-18');
 INSERT INTO `conference` VALUES ('30', 'SPTM   2020 : 8th International Conference of Security, Privacy and Trust Management', 'https://csit2020.org/sptm/index.html', 'security | privacy | robotics | sensor networks', '2020-06-13', '2020-06-14', 'Helsinki, Finland', '2020-04-18');
 INSERT INTO `conference` VALUES ('31', 'IJASSN  2020 : International Journal of Advanced Smart Sensor Network Systems', 'http://airccse.org/journal/ijassn/ijassn.html', 'data | networking | manufacturing | sensor networks', 'N/A', 'N/A', 'N/A', '2020-04-18');
-INSERT INTO `conference` VALUES ('32', 'NLPA  2020 : International Conference on Natural Language Processing & Applications', 'https://csit2020.org/nlpa/index.html', 'communications | networks | VLSI | software engineering', '2020-06-13', '2020-06-14', 'Helsinki, Finland', '2020-04-18');
+INSERT INTO `conference` VALUES ('32', 'NLPA  2020 : International Conference on Natural Language Processing & Applications', 'https://csit2020.org/nlpa/index.html', 'communications | networks | VLSI | software engineering', '2020-06-13', '2020-06-15', 'Helsinki, Finland', '2020-04-18');
 INSERT INTO `conference` VALUES ('33', 'ICAIT  2020 : 9th International Conference on Advanced Computer Science and Information Technology', 'https://itcse2020.org/icait/index.html', 'computer science | information technology | communication | information management', '2020-05-30', '2020-05-31', 'Vancouver, Canada', '2020-04-18');
 INSERT INTO `conference` VALUES ('34', 'NCO  2020 : 6th International Conference on Networks and Communications', 'https://icaita2020.org/nco/index.html', 'networking | communications | computer science | wireless', '2020-07-11', '2020-07-12', 'Toronto, Canada', '2020-04-18');
 INSERT INTO `conference` VALUES ('35', 'IJCCSA  2020 : International Journal on Cloud Computing: Services and Architecture ', 'http://airccse.org/journal/ijccsa/index.html', 'computer science | cloud computing | security | applications', 'N/A', 'N/A', 'N/A', '2020-04-18');
@@ -85,7 +85,7 @@ INSERT INTO `conference` VALUES ('51', 'CCCIS--ACM, Ei, Scopus  2020 : ACM--2020
 INSERT INTO `conference` VALUES ('52', 'CCBD--Ei Compendex & Scopus  2020 : 2020 The 8th International Conference on Cloud Computing and Big Data (CCBD 2020)--Ei Compendex & Scopus', 'http://www.cccbd.org', 'computer science | computing | big data | software engineering', '2020-08-21', '2020-08-23', 'Xi\'an, China', '2020-04-20');
 INSERT INTO `conference` VALUES ('53', 'MADEISD  2020 : Modern Approaches in Data Engineering and Information System Design', 'http://www.acs.uns.ac.rs/adbis2020/', 'computer science | data science | information systems | data engineering', '2020-08-25', '2020-08-28', 'Lyon', '2020-04-20');
 INSERT INTO `conference` VALUES ('54', 'ACM--ICAII--Ei Compendex, Scopus  2020 : ACM--2020 International Conference on Artificial Intelligence Innovation (ICAII 2020)--Ei Compendex, Scopus', 'http://www.icaii.org', 'artificial intelligence | robotics | computer science | computational intelligence', '2020-06-14', '2020-06-16', 'Chengdu, China', '2020-04-20');
-INSERT INTO `conference` VALUES ('55', 'SPIE--IWPR--Ei Compendex, Scopus  2020 : SPIE--2020 the 5th International Workshop on Pattern Recognition (IWPR 2020)--Ei Compendex, Scopus', 'http://www.icopr.org/', 'pattern recognition | systems engineering | computer science | artificial intelligence', '2020-06-05', '2020-06-07', 'Chengdu, China', '2020-04-20');
+INSERT INTO `conference` VALUES ('55', 'SPIE--IWPR--Ei Compendex, Scopus  2020 : SPIE--2020 the 5th International Workshop on Pattern Recognition (IWPR 2020)--Ei Compendex, Scopus', 'http://www.icopr.org/', 'pattern recognition | systems engineering | computer science | artificial intelligence', '2020-06-05', '2020-06-07', '成都, China', '2020-04-20');
 INSERT INTO `conference` VALUES ('56', 'SRSE--Ei compendex, scopus  2020 : 2020 The 2nd International Conference on System Reliability and Safety Engineering (SRSE 2020)--Ei compendex, scopus', 'http://srse.org/', 'reliability | engineering | computer science | software engineering', '2020-09-25', '2020-09-27', 'Chengdu, China', '2020-04-20');
 INSERT INTO `conference` VALUES ('57', 'CCCIS--ACM, Ei, Scopus  2020 : ACM--2020 International Conference on Computer Communication and Information Systems (CCCIS 2020)--Ei Compendex, Scopus', 'http://www.cccis.org/', 'computer science | information technology | computing | informatics', '2020-08-01', '2020-08-03', 'Ho Chi Minh City, Vietnam', '2020-04-20');
 INSERT INTO `conference` VALUES ('58', 'WSSE--Ei Compendex, Scopus  2020 : 2020 The 2nd World Symposium on Software Engineering (WSSE 2020)--Ei compendex, scopus', 'http://wsse.org/', 'computer science | software engineering | systems engineering | computational intelligence', '2020-09-25', '2020-09-27', 'Chengdu, China', '2020-04-20');
@@ -216,7 +216,7 @@ INSERT INTO `conference` VALUES ('182', 'VRIP--ACM, EI, Scopus  2020 : ACM--2020
 INSERT INTO `conference` VALUES ('183', 'ICMU  2020 : The 13th International Conference on Mobile Computing and Ubiquitous Networking', 'http://www.icmu.org/icmu2020/', 'computer science | artificial intelligence | mobile computing | ubiquitous computing', '2020-10-28', '2020-10-30', 'Tokyo, Japan', '2020-05-18');
 INSERT INTO `conference` VALUES ('184', 'icSPORTS  2020 : 8th International Conference on Sport Sciences Research and Technology Support', 'http://www.icsports.org', 'information technology | biotechnology | health | computer science', '2020-11-05', '2020-11-06', 'Budapest, Hungary', '2020-05-19');
 INSERT INTO `conference` VALUES ('185', 'KEOD  2020 : 12th International Conference on Knowledge Engineering and Ontology Development', 'http://www.keod.ic3k.org', 'semantic web | knowledge engineering | ontologies | computer science', '2020-11-02', '2020-11-04', 'Budapest, Hungary', '2020-05-19');
-INSERT INTO `conference` VALUES ('186', 'PRAI--Ei and Scopus  2020 : 2020 the 3rd International Conference on Pattern Recognition and Artificial Intelligence (PRAI 2020)--Ei Compendex, Scopus', 'http://www.prai.net/', 'computer science | intelligent systems | computer vision | information technology', '2020-08-28', '2020-08-30', 'Chengdu, China', '2020-05-20');
+INSERT INTO `conference` VALUES ('186', 'PRAI--Ei and Scopus  2020 : 2020 the 3rd International Conference on Pattern Recognition and Artificial Intelligence (PRAI 2020)--Ei Compendex, Scopus', 'http://www.prai.net/', 'computer science | intelligent systems | computer vision | information technology', '2020-08-28', '2020-08-30', '成都, China', '2020-05-20');
 INSERT INTO `conference` VALUES ('187', 'ACM--ESSE--Ei Compendex, Scopus  2020 : ACM--2020 European Symposium on Software Engineerings (ESSE 2020)--Ei Compendex, Scopus', 'http://esse.org/', 'computer science | software engineering | artificial intelligence | cloud computing', '2020-11-06', '2020-11-08', 'Rome, Italy', '2020-05-20');
 INSERT INTO `conference` VALUES ('188', 'ICCCV--Ei Compendex and Scopus  2020 : 2020 The 3rd International Conference on Control and Computer Vision (ICCCV 2020)--Ei Compendex, Scopus', 'http://www.icccv.org', 'robotics | intelligent systems | computer science | machine learning', '2020-08-23', '2020-08-25', 'Macao, China', '2020-05-20');
 INSERT INTO `conference` VALUES ('189', 'CCCN--Ei, Scopus  2020 : 2020 International Conference on Communications and Computer Networks (CCCN 2020)--Ei Compendex, Scopus', 'http://www.cccn.net/', 'communications | computer science | signal processing | information technology', '2020-08-28', '2020-08-30', 'Chengdu, China', '2020-05-20');
@@ -775,7 +775,7 @@ INSERT INTO `conference` VALUES ('972', 'IWSSS  2020 : International Workshop on
 INSERT INTO `conference` VALUES ('973', 'EAI SecureComm  2020 : SecureComm 2020 - 16th EAI International Conference on Security and Privacy in Communication Networks', 'http://securecomm.org/', 'security | privacy | cryptography | blockchain', '2020-10-21', '2020-10-23', 'Washington D.C., United States', '2020-05-04');
 INSERT INTO `conference` VALUES ('974', 'IoTSMS  2020 : The 7th International Conference on Internet of Things: Systems, Management and Security ', 'http://emergingtechnet.org/IOTSMS2020/', 'internet of things | wearable computing | edge and fog computing | security', '2020-10-26', '2020-10-29', 'Milan, Italy', '2020-05-10');
 INSERT INTO `conference` VALUES ('975', 'IEEE TrustCom/BlockchainSys   2020 : IEEE TrustCom/BlockchainSys 2020 Call for Papers (CFPs)', 'http://ieee-trustcom.org/BlockchainSys2020/', 'trust | security | and privacy in computing and c', '2020-11-10', '2020-11-13', 'Guangzhou, China, November 10-13, 2020', '2020-05-10');
-INSERT INTO `conference` VALUES ('976', 'SRDS  2020 : International Symposium on Reliable Distributed Systems', 'https://srds-conference.org/', 'distributed systems | reliability | dependability | security', '2020-09-21', '2020-09-24', 'Shanghai, China (or online)', '2020-05-15');
+INSERT INTO `conference` VALUES ('976', 'SRDS  2020 : International Symposium on Reliable Distributed Systems', 'https://srds-conference.org/', 'distributed systems | reliability | dependability | security', '2020-09-21', '2020-09-24', 'Shanghai, China', '2020-05-15');
 INSERT INTO `conference` VALUES ('977', 'EMERGING  2020 : The Twelfth International Conference on Emerging Networks and Systems Intelligence', 'https://www.iaria.org/conferences2020/EMERGING20.html', 'intelligent systems | security | optimization | user centric', '2020-07-26', '2020-07-30', 'Nice, France', '2020-05-17');
 INSERT INTO `conference` VALUES ('978', 'ICIMP  2020 : The Fifteenth International Conference on Internet Monitoring and Protection', 'https://www.iaria.org/conferences2020/ICIMP20.html', 'cyber fraud | security | monitoring | biometric', '2020-09-27', '2020-10-01', 'Rome, Italy', '2020-05-18');
 INSERT INTO `conference` VALUES ('983', 'DTS   2020 : 2nd International Workshop on Defense Technology and Security', 'https://sites.google.com/view/dts2020/', '', '2020-07-01', '2020-07-04', 'University of Cagliari, Cagliari, Italy', '2020-04-26');
@@ -2379,6 +2379,15 @@ INSERT INTO `conference` VALUES ('2781', 'NSL  2018 : International Workshop on 
 INSERT INTO `conference` VALUES ('2782', 'IFIP/IEEE IM  2019 : IFIP/IEEE International Symposium on Integrated Network Management  (IM 2019)', 'http://im2019.ieee-im.org/', 'networking | network management | SDN | artificial intelligence', '2019-04-08', '2019-04-12', 'Washington DC, USA', '2018-09-10');
 INSERT INTO `conference` VALUES ('2783', 'ICML 2020 : 37th International Conference on Machine Learning', 'https://icml.cc/Conferences/2020', 'machine learning | artificial intelligence\r\n', '2020-07-12', '2020-07-18', 'Vienna, AUSTRIA', '2020-02-06');
 INSERT INTO `conference` VALUES ('3114', 'ISQED 2020 : 21st International Symposium on Quality Electronic Design', 'https://www.ISQED.org', '  EDA |semiconductors | ic design | electronic | design', '2020-03-25', '2020-03-26', 'Santa Clara, CA, USA', '2019-11-11');
+INSERT INTO `conference` VALUES ('3115', 'ICAART 2020 : 12th International Conference on Agents and Artificial Intelligence', 'http://www.icaart.org', 'artificial intelligence | intelligent systems | multi-agent systems | AI', '2020-02-22', '2020-02-24', 'Valletta, Malta', '2019-11-15');
+INSERT INTO `conference` VALUES ('3116', 'RSS 2020 : Robotics: Science and Systems', 'https://roboticsconference.org', 'robotics', '2020-07-12', '2020-07-17', 'Oregon State University in Corvallis, Oregon, United States', '2020-01-30');
+INSERT INTO `conference` VALUES ('3117', 'AAAI 2020 : The Thirty-Fourth AAAI Conference on Artificial Intelligence', 'https://aaai.org/Conferences/AAAI-20', 'artificial intelligence   machine learning   knowledge representation   reasoning', '2020-02-07', '2020-02-12', 'Hilton New York Midtown, New York, USA', '2019-09-05');
+INSERT INTO `conference` VALUES ('3118', 'INFOCOM 2020 : International Conference on Computer Communications', 'https://www.comsoc.org/conferences-events/ieee-international-conference-computer-communications-2020#', 'computer science | communications', '2020-04-27', '2020-04-30', 'Beijing, China', '2019-07-31');
+INSERT INTO `conference` VALUES ('3119', 'OSDI 2020 : USENIX Symposium on Operating Systems Design and Implementation', 'https://www.usenix.org/conference/osdi20/', 'operating system', '2020-11-04', '2020-11-06', 'Banff, Alberta, Canada', '2020-05-12');
+INSERT INTO `conference` VALUES ('3120', 'CVPR 2020 : Computer Vision and Pattern Recognition', 'http://cvpr2020.thecvf.com/', 'computer science   computer vision   deep learning', '2020-06-16', '2020-06-20', 'Seattle, WA', '2019-11-15');
+INSERT INTO `conference` VALUES ('3121', 'ICRA 2020 : International Conference on Robotics and Automation', 'http://www.icra2020.org/', ' robotics', '2020-05-31', '2020-06-04', 'Paris', '');
+INSERT INTO `conference` VALUES ('3122', 'CyberHunt 2020 : International Workshop on Big Data Analytics for Cyber Threat Hunting', 'http://cyberhunt2020.cyberhunt.no/', 'information security   network security   cyber security   security', '2020-12-10', '2020-12-13', 'Atlanta, GA, USA', '2020-10-16');
+INSERT INTO `conference` VALUES ('3123', 'ESCC--EI Compendex, Scopus 2020 : 2020 The 2nd European Symposium on Computer and Communications (ESCC 2020)--Ei compendex, scopus', 'http://escc.net/', 'computer science   communications   networking   information technology', '2020-07-26', '2020-07-28', 'London, United Kingdom', '2020-05-15');
 
 -- ----------------------------
 -- Table structure for `login_ticket`
@@ -2392,7 +2401,7 @@ CREATE TABLE `login_ticket` (
   `expired` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_ticket` (`ticket`(20))
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of login_ticket
@@ -2405,22 +2414,189 @@ INSERT INTO `login_ticket` VALUES ('11', '16', 'cb9d3c79-180d-4bb3-a292-1005ecb1
 INSERT INTO `login_ticket` VALUES ('12', '16', '91a33d07-3024-459c-b52c-f263dd9dc0b0', '1', '2020-04-17 12:40:56');
 INSERT INTO `login_ticket` VALUES ('13', '18', '9a11f847-35f8-4caf-bcaa-7e7c651028d8', '1', '2020-04-23 08:30:21');
 INSERT INTO `login_ticket` VALUES ('14', '18', '366c59a1-f9ce-402e-8fc4-bf1b82b8dbb5', '1', '2020-04-23 08:34:38');
+INSERT INTO `login_ticket` VALUES ('15', '18', '9e0c6da6-ba36-4cf1-83d4-490e66bcf2b9', '1', '2020-04-24 09:49:07');
+INSERT INTO `login_ticket` VALUES ('16', '18', '29cdadb7-54a3-4856-9438-0ad7a25f5557', '1', '2020-04-25 09:05:45');
+INSERT INTO `login_ticket` VALUES ('17', '18', '525349fa-abb3-4f18-a8d2-ae848f3512ea', '0', '2020-04-25 13:29:45');
+INSERT INTO `login_ticket` VALUES ('18', '18', '0088ee11-d98a-4583-a4b3-f3a48621571b', '0', '2020-04-26 06:45:23');
+INSERT INTO `login_ticket` VALUES ('19', '18', '48586826-9e44-41ed-b7a6-1857666b871d', '1', '2020-04-27 08:33:15');
+INSERT INTO `login_ticket` VALUES ('20', '18', 'c6063f2c-6117-45a0-b255-64747d4cc4f2', '1', '2020-04-29 12:11:40');
+INSERT INTO `login_ticket` VALUES ('21', '18', '88cd59c8-b6ba-4ff5-a651-cf8b4d1eb75f', '1', '2020-05-06 08:06:31');
+INSERT INTO `login_ticket` VALUES ('22', '20', '0de66383-8b57-4466-88a6-4c1416dbef42', '0', '2020-05-09 02:22:04');
+INSERT INTO `login_ticket` VALUES ('23', '16', '2b4bed7c-5435-43f8-a82e-27585c294b36', '1', '2020-05-09 03:05:50');
+INSERT INTO `login_ticket` VALUES ('24', '16', 'a2d0db07-480b-4a6f-8aeb-c062ab464d13', '0', '2020-05-09 03:05:53');
+INSERT INTO `login_ticket` VALUES ('25', '18', '62fdaf08-5d6c-4989-8f14-7009782506a8', '1', '2020-05-09 05:20:06');
+INSERT INTO `login_ticket` VALUES ('26', '18', 'e77afa36-ec08-43d4-94f3-776fbbc7b2db', '0', '2020-05-10 06:18:37');
+INSERT INTO `login_ticket` VALUES ('27', '16', 'ec4109ed-3f8c-4af3-9340-53c67e8fb76f', '1', '2020-05-10 06:19:48');
+INSERT INTO `login_ticket` VALUES ('28', '20', '437bd55d-ee6b-4f94-bd4b-aa9fe00098bb', '0', '2020-05-12 13:18:58');
+INSERT INTO `login_ticket` VALUES ('29', '16', '2a209b15-4f94-4f41-bfb0-a8e819a774f1', '1', '2020-05-12 13:20:07');
+INSERT INTO `login_ticket` VALUES ('30', '16', '78e8c2fa-7db4-43ff-8b49-39c0df05c68f', '0', '2020-05-12 13:20:08');
+INSERT INTO `login_ticket` VALUES ('31', '16', '19ec853e-e85c-4ab7-8efc-b49c60f6245f', '1', '2020-05-12 13:22:36');
+INSERT INTO `login_ticket` VALUES ('32', '16', 'b663c39d-4daf-42d0-a007-a7c24748e3c9', '0', '2020-05-12 13:22:36');
+INSERT INTO `login_ticket` VALUES ('33', '16', '9c9c3da0-6333-4b4f-878f-f6066ce41d3f', '0', '2020-05-12 14:34:01');
+INSERT INTO `login_ticket` VALUES ('34', '16', '5f830015-94be-4ae4-8988-9cbffb91aca5', '1', '2020-05-12 19:12:11');
+INSERT INTO `login_ticket` VALUES ('35', '16', '193dba7f-9ba9-4def-a59a-508b15f476a7', '0', '2020-05-12 19:12:14');
+INSERT INTO `login_ticket` VALUES ('36', '16', 'a8d7eeb0-c3f0-4395-a5d8-2c4705d04768', '0', '2020-05-12 19:12:26');
+INSERT INTO `login_ticket` VALUES ('37', '16', 'd8c2f27a-df23-4e40-92fe-2177aeee878b', '0', '2020-05-12 19:38:48');
+INSERT INTO `login_ticket` VALUES ('38', '16', '7eec0416-0b18-4185-ae25-9da7b4415727', '1', '2020-05-12 21:13:23');
+INSERT INTO `login_ticket` VALUES ('39', '16', 'a07b245f-f6e6-4f66-b040-5d9860738eeb', '0', '2020-05-12 21:13:25');
+INSERT INTO `login_ticket` VALUES ('40', '16', 'fea420f8-792b-4bef-afe9-b00c7b35bdc6', '1', '2020-05-12 21:55:22');
+INSERT INTO `login_ticket` VALUES ('41', '16', 'b8917987-ee5d-4a06-91ce-8501ce3b095c', '0', '2020-05-12 21:55:32');
+INSERT INTO `login_ticket` VALUES ('42', '16', '809446a6-a6ce-42b9-90ba-dc284d57177b', '1', '2020-05-13 18:07:28');
+INSERT INTO `login_ticket` VALUES ('43', '16', '417b6499-c486-4674-8e7e-297d7fff5302', '0', '2020-05-13 18:07:32');
+INSERT INTO `login_ticket` VALUES ('44', '21', 'd52dee49-8627-4875-9217-e5fad8c54bcd', '0', '2020-05-13 18:08:11');
+INSERT INTO `login_ticket` VALUES ('45', '16', '992702ff-7672-42ab-9caa-a41a53d2f94f', '0', '2020-05-13 18:09:25');
+INSERT INTO `login_ticket` VALUES ('46', '21', '46f78f14-e27b-4fd6-bebe-0ff85df7ccd2', '0', '2020-05-14 11:54:27');
+INSERT INTO `login_ticket` VALUES ('47', '18', '3e95d008-c353-4177-9374-884fc26736cb', '0', '2020-05-14 11:55:06');
+INSERT INTO `login_ticket` VALUES ('48', '21', '1c042d4b-08e4-448c-a45d-bdc5d28aeb39', '0', '2020-05-14 11:55:17');
+INSERT INTO `login_ticket` VALUES ('49', '16', '96c2a7f7-dbc1-4658-8516-76858a19a572', '0', '2020-05-14 11:55:39');
+INSERT INTO `login_ticket` VALUES ('50', '18', 'abf4492b-4e6e-4de9-90f3-95467d844cd9', '0', '2020-05-14 13:40:42');
+INSERT INTO `login_ticket` VALUES ('51', '16', 'ab6e39a7-4735-418f-8c5d-56596c8b9113', '0', '2020-05-14 13:41:57');
+INSERT INTO `login_ticket` VALUES ('52', '22', '3a225be2-f8ed-4455-a57d-54ae9b61c567', '0', '2020-05-14 13:58:52');
+INSERT INTO `login_ticket` VALUES ('53', '22', 'e1b0b730-73fd-45c8-a260-5ed0afcd3ec9', '0', '2020-05-14 14:06:02');
+INSERT INTO `login_ticket` VALUES ('54', '22', '80ce7255-ce90-4541-8d6e-67cb830f8158', '0', '2020-05-14 14:06:24');
+INSERT INTO `login_ticket` VALUES ('55', '21', 'e1db9594-541c-4c76-b974-fb3a6050b56d', '0', '2020-05-14 14:08:59');
+INSERT INTO `login_ticket` VALUES ('56', '18', '33fefe63-4835-42be-b59c-b91887d198c5', '0', '2020-05-14 14:09:20');
+
+-- ----------------------------
+-- Table structure for `notice`
+-- ----------------------------
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE `notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `conference_id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `to_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of notice
+-- ----------------------------
+INSERT INTO `notice` VALUES ('2', '2', 'update', '18', '0', '2020-05-09 15:09:11');
+INSERT INTO `notice` VALUES ('4', '2', 'update', '18', '0', '2020-05-09 15:47:53');
+INSERT INTO `notice` VALUES ('6', '2', 'update', '18', '0', '2020-05-09 15:48:11');
+INSERT INTO `notice` VALUES ('8', '2', 'update', '18', '0', '2020-05-09 15:52:02');
+INSERT INTO `notice` VALUES ('9', '3118', 'insert', '1', '0', '2020-05-09 15:56:37');
+INSERT INTO `notice` VALUES ('10', '3118', 'insert', '15', '0', '2020-05-09 15:56:37');
+INSERT INTO `notice` VALUES ('11', '3118', 'insert', '16', '1', '2020-05-09 15:56:42');
+INSERT INTO `notice` VALUES ('12', '3118', 'insert', '17', '0', '2020-05-09 15:56:37');
+INSERT INTO `notice` VALUES ('13', '3118', 'insert', '18', '0', '2020-05-09 15:56:37');
+INSERT INTO `notice` VALUES ('14', '3118', 'insert', '19', '0', '2020-05-09 15:56:37');
+INSERT INTO `notice` VALUES ('15', '3118', 'insert', '20', '0', '2020-05-09 15:56:38');
+INSERT INTO `notice` VALUES ('16', '3119', 'insert', '1', '0', '2020-05-09 16:03:01');
+INSERT INTO `notice` VALUES ('17', '3119', 'insert', '15', '0', '2020-05-09 16:03:01');
+INSERT INTO `notice` VALUES ('19', '3119', 'insert', '17', '0', '2020-05-09 16:03:01');
+INSERT INTO `notice` VALUES ('20', '3119', 'insert', '18', '0', '2020-05-09 16:03:01');
+INSERT INTO `notice` VALUES ('21', '3119', 'insert', '19', '0', '2020-05-09 16:03:01');
+INSERT INTO `notice` VALUES ('22', '3119', 'insert', '20', '0', '2020-05-09 16:03:01');
+INSERT INTO `notice` VALUES ('23', '32', 'update', '16', '1', '2020-05-09 16:18:57');
+INSERT INTO `notice` VALUES ('25', '2', 'update', '18', '0', '2020-05-09 16:06:06');
+INSERT INTO `notice` VALUES ('26', '2', 'update', '16', '1', '2020-05-11 13:20:44');
+INSERT INTO `notice` VALUES ('27', '2', 'update', '18', '0', '2020-05-11 13:20:17');
+INSERT INTO `notice` VALUES ('29', '2', 'update', '18', '0', '2020-05-11 13:20:23');
+INSERT INTO `notice` VALUES ('31', '2', 'update', '18', '0', '2020-05-11 13:21:05');
+INSERT INTO `notice` VALUES ('33', '2', 'update', '18', '0', '2020-05-11 13:22:44');
+INSERT INTO `notice` VALUES ('35', '4', 'update', '18', '0', '2020-05-11 21:36:55');
+INSERT INTO `notice` VALUES ('36', '4', 'update', '20', '0', '2020-05-11 21:36:55');
+INSERT INTO `notice` VALUES ('37', '3120', 'insert', '1', '0', '2020-05-11 21:49:18');
+INSERT INTO `notice` VALUES ('38', '3120', 'insert', '15', '0', '2020-05-11 21:49:18');
+INSERT INTO `notice` VALUES ('39', '3120', 'insert', '16', '1', '2020-05-11 21:55:36');
+INSERT INTO `notice` VALUES ('40', '3120', 'insert', '17', '0', '2020-05-11 21:49:18');
+INSERT INTO `notice` VALUES ('41', '3120', 'insert', '18', '0', '2020-05-11 21:49:18');
+INSERT INTO `notice` VALUES ('42', '3120', 'insert', '19', '0', '2020-05-11 21:49:18');
+INSERT INTO `notice` VALUES ('43', '3120', 'insert', '20', '0', '2020-05-11 21:49:18');
+INSERT INTO `notice` VALUES ('44', '3121', 'insert', '1', '0', '2020-05-11 21:54:06');
+INSERT INTO `notice` VALUES ('45', '3121', 'insert', '15', '0', '2020-05-11 21:54:06');
+INSERT INTO `notice` VALUES ('46', '3121', 'insert', '16', '1', '2020-05-12 17:01:35');
+INSERT INTO `notice` VALUES ('47', '3121', 'insert', '17', '0', '2020-05-11 21:54:06');
+INSERT INTO `notice` VALUES ('48', '3121', 'insert', '18', '0', '2020-05-11 21:54:06');
+INSERT INTO `notice` VALUES ('49', '3121', 'insert', '19', '0', '2020-05-11 21:54:06');
+INSERT INTO `notice` VALUES ('50', '3121', 'insert', '20', '0', '2020-05-11 21:54:06');
+INSERT INTO `notice` VALUES ('52', '2', 'update', '18', '0', '2020-05-12 17:39:04');
+INSERT INTO `notice` VALUES ('54', '2', 'update', '18', '0', '2020-05-12 17:39:12');
+INSERT INTO `notice` VALUES ('56', '2', 'update', '18', '0', '2020-05-12 17:39:17');
+INSERT INTO `notice` VALUES ('58', '2', 'update', '18', '0', '2020-05-12 17:41:53');
+INSERT INTO `notice` VALUES ('60', '2', 'update', '18', '0', '2020-05-12 17:44:08');
+INSERT INTO `notice` VALUES ('70', '2', 'update', '18', '0', '2020-05-12 17:59:54');
+INSERT INTO `notice` VALUES ('72', '2', 'update', '18', '0', '2020-05-12 18:00:26');
+INSERT INTO `notice` VALUES ('74', '2', 'update', '18', '0', '2020-05-12 18:02:58');
+INSERT INTO `notice` VALUES ('76', '2', 'update', '18', '0', '2020-05-12 18:03:35');
+INSERT INTO `notice` VALUES ('78', '2', 'update', '18', '0', '2020-05-12 18:04:02');
+INSERT INTO `notice` VALUES ('80', '2', 'update', '18', '0', '2020-05-12 18:05:45');
+INSERT INTO `notice` VALUES ('81', '2', 'update', '16', '0', '2020-05-12 18:26:33');
+INSERT INTO `notice` VALUES ('82', '2', 'update', '18', '0', '2020-05-12 18:26:33');
+INSERT INTO `notice` VALUES ('83', '3122', 'insert', '1', '0', '2020-05-12 18:28:56');
+INSERT INTO `notice` VALUES ('84', '3122', 'insert', '15', '0', '2020-05-12 18:28:56');
+INSERT INTO `notice` VALUES ('85', '3122', 'insert', '16', '0', '2020-05-12 18:28:56');
+INSERT INTO `notice` VALUES ('86', '3122', 'insert', '17', '0', '2020-05-12 18:28:56');
+INSERT INTO `notice` VALUES ('87', '3122', 'insert', '18', '0', '2020-05-12 18:28:56');
+INSERT INTO `notice` VALUES ('88', '3122', 'insert', '19', '0', '2020-05-12 18:28:56');
+INSERT INTO `notice` VALUES ('89', '3122', 'insert', '20', '0', '2020-05-12 18:28:56');
+INSERT INTO `notice` VALUES ('90', '3122', 'insert', '21', '0', '2020-05-12 18:28:56');
+INSERT INTO `notice` VALUES ('91', '3123', 'insert', '1', '0', '2020-05-12 18:34:48');
+INSERT INTO `notice` VALUES ('92', '3123', 'insert', '15', '0', '2020-05-12 18:34:48');
+INSERT INTO `notice` VALUES ('93', '3123', 'insert', '16', '0', '2020-05-12 18:34:48');
+INSERT INTO `notice` VALUES ('94', '3123', 'insert', '17', '0', '2020-05-12 18:34:49');
+INSERT INTO `notice` VALUES ('95', '3123', 'insert', '18', '0', '2020-05-12 18:34:49');
+INSERT INTO `notice` VALUES ('96', '3123', 'insert', '19', '0', '2020-05-12 18:34:49');
+INSERT INTO `notice` VALUES ('97', '3123', 'insert', '20', '0', '2020-05-12 18:34:49');
+INSERT INTO `notice` VALUES ('98', '3123', 'insert', '21', '0', '2020-05-12 18:34:49');
+INSERT INTO `notice` VALUES ('99', '1', 'update', '21', '0', '2020-05-13 11:29:17');
+INSERT INTO `notice` VALUES ('104', '4', 'update', '20', '0', '2020-05-13 11:30:28');
+INSERT INTO `notice` VALUES ('107', '4', 'update', '20', '0', '2020-05-13 11:30:39');
+INSERT INTO `notice` VALUES ('108', '3', 'update', '16', '1', '2020-05-13 13:43:57');
+INSERT INTO `notice` VALUES ('111', '55', 'update', '22', '0', '2020-05-13 14:00:57');
+INSERT INTO `notice` VALUES ('112', '186', 'update', '22', '1', '2020-05-13 14:02:09');
+INSERT INTO `notice` VALUES ('113', '186', 'update', '22', '1', '2020-05-13 14:02:07');
 
 -- ----------------------------
 -- Table structure for `save_conference`
 -- ----------------------------
 DROP TABLE IF EXISTS `save_conference`;
 CREATE TABLE `save_conference` (
-  `save_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `conference_id` int(11) NOT NULL,
   `insert_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`save_id`)
+  PRIMARY KEY (`user_id`,`conference_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of save_conference
 -- ----------------------------
+INSERT INTO `save_conference` VALUES ('16', '2', '2020-05-12 18:26:28');
+INSERT INTO `save_conference` VALUES ('16', '3', '2020-05-11 21:32:27');
+INSERT INTO `save_conference` VALUES ('16', '4', '2020-05-12 16:58:27');
+INSERT INTO `save_conference` VALUES ('16', '5', '2020-05-11 21:32:30');
+INSERT INTO `save_conference` VALUES ('16', '6', '2020-05-11 21:35:08');
+INSERT INTO `save_conference` VALUES ('16', '765', '2020-05-13 13:44:18');
+INSERT INTO `save_conference` VALUES ('18', '2', '2020-04-25 15:14:40');
+INSERT INTO `save_conference` VALUES ('18', '4', '2020-04-25 13:22:14');
+INSERT INTO `save_conference` VALUES ('18', '9', '2020-05-05 16:06:55');
+INSERT INTO `save_conference` VALUES ('18', '10', '2020-05-05 16:06:44');
+INSERT INTO `save_conference` VALUES ('18', '18', '2020-04-25 11:37:25');
+INSERT INTO `save_conference` VALUES ('18', '29', '2020-04-25 11:37:27');
+INSERT INTO `save_conference` VALUES ('18', '33', '2020-04-25 13:07:01');
+INSERT INTO `save_conference` VALUES ('18', '47', '2020-04-25 13:07:06');
+INSERT INTO `save_conference` VALUES ('18', '51', '2020-04-25 13:07:10');
+INSERT INTO `save_conference` VALUES ('18', '55', '2020-04-25 13:21:40');
+INSERT INTO `save_conference` VALUES ('18', '67', '2020-04-25 13:07:14');
+INSERT INTO `save_conference` VALUES ('18', '89', '2020-04-25 13:07:20');
+INSERT INTO `save_conference` VALUES ('18', '182', '2020-04-25 13:21:42');
+INSERT INTO `save_conference` VALUES ('18', '258', '2020-04-25 13:21:45');
+INSERT INTO `save_conference` VALUES ('20', '4', '2020-05-08 10:22:18');
+INSERT INTO `save_conference` VALUES ('20', '6', '2020-05-08 10:22:24');
+INSERT INTO `save_conference` VALUES ('20', '10', '2020-05-08 10:23:09');
+INSERT INTO `save_conference` VALUES ('21', '1', '2020-05-12 18:08:20');
+INSERT INTO `save_conference` VALUES ('21', '5', '2020-05-12 18:08:25');
+INSERT INTO `save_conference` VALUES ('21', '8', '2020-05-12 18:08:28');
+INSERT INTO `save_conference` VALUES ('22', '2', '2020-05-13 14:01:18');
+INSERT INTO `save_conference` VALUES ('22', '7', '2020-05-13 13:59:08');
+INSERT INTO `save_conference` VALUES ('22', '19', '2020-05-13 13:59:11');
+INSERT INTO `save_conference` VALUES ('22', '55', '2020-05-13 14:00:48');
+INSERT INTO `save_conference` VALUES ('22', '76', '2020-05-13 13:59:13');
+INSERT INTO `save_conference` VALUES ('22', '186', '2020-05-13 14:01:46');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -2432,15 +2608,19 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `salt` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `role` int(11) NOT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', 'admin', '05a98', '123@123.com', '2020-03-16 00:49:41');
-INSERT INTO `user` VALUES ('15', 'zhangsan123', '5c44293ca54e7d75eb20eedd69adc01d', '44347', '1930@qq.com', '2020-03-16 11:56:28');
-INSERT INTO `user` VALUES ('16', 'zjgsjy1130', '525e8844ff69a112bbdbf11fc7ba407e', 'f8e37', '1933794630@qq.com', '2020-03-16 15:41:58');
-INSERT INTO `user` VALUES ('17', 'admin2ads3', 'admin23', '47f29', '12d34@12dd34.com', '2020-03-17 09:22:18');
-INSERT INTO `user` VALUES ('18', '171310218', 'eea9b750d159cd8562bc57a66bd23b77', '33283', '171310218@stu.hit.edu.cn', '2020-04-22 16:29:59');
+INSERT INTO `user` VALUES ('15', 'zhangsan123', '5c44293ca54e7d75eb20eedd69adc01d', '44347', '1930@qq.com', '0', '2020-03-16 11:56:28');
+INSERT INTO `user` VALUES ('16', 'zjgsjy1130', '525e8844ff69a112bbdbf11fc7ba407e', 'f8e37', '19337946301@qq.com', '0', '2020-05-13 13:57:37');
+INSERT INTO `user` VALUES ('17', 'admin2ads3', 'admin23', '47f29', '12d34@12dd34.com', '0', '2020-03-17 09:22:18');
+INSERT INTO `user` VALUES ('18', '171310218', '26c8dfe447eb1597744c94bf935a0cb1', '33283', '171310218@stu.hit.edu.cn', '0', '2020-05-13 14:09:43');
+INSERT INTO `user` VALUES ('19', '123213', '0ebae5569729d0f2ee03b7886389c744', 'd8b08', '12312312@1312.com', '0', '2020-04-28 20:11:25');
+INSERT INTO `user` VALUES ('20', '123456', '829fead9a458ec7942eb61b61c451275', '213d1', '123123123@casc.com', '0', '2020-05-08 10:21:56');
+INSERT INTO `user` VALUES ('21', 'jonnys', '1dedf9335d2905075a449ca83c021697', '9f262', 'sjy1933794630@gmail.com', '0', '2020-05-12 18:07:55');
+INSERT INTO `user` VALUES ('22', 'admin', '7e6cb9c84d3b5e4eddb8ed6c22e515a6', '481cb', '1933794630@qq.com', '1', '2020-05-13 14:08:32');

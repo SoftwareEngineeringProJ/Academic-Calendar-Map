@@ -21,7 +21,7 @@
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="/css/swiper.min.css">
-
+    <link rel="stylesheet" href="/css/toastr.css">
     <!-- Styles -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -103,7 +103,6 @@
             </div><!-- .container -->
         </div><!-- .page-header-overlay -->
     </div><!-- .page-header -->
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -115,6 +114,17 @@
                 </div><!-- .breadcrumbs -->
             </div><!-- .col -->
         </div><!-- .row -->
+        <div class="position-relative">
+            <!-- 选项 -->
+            <ul class="nav nav-tabs mb-3">
+                <li class="nav-item">
+                    <a class="nav-link position-relative active" th:href="@{/user/profile}">收藏会议</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" th:href="@{/user/setting}">账户设置</a>
+                </li>
+            </ul>
+        </div>
         <table cellpadding="3" cellspacing="1" align="center" width="110%">
             <tbody>
                 <tr bgcolor="#CCCCFF">
@@ -250,11 +260,80 @@
     <script type='text/javascript' src='/js/masonry.pkgd.min.js'></script>
     <script type='text/javascript' src='/js/jquery.collapsible.min.js'></script>
     <script type='text/javascript' src='/js/custom.js'></script>
-    <script type="text/javascript" src="/js/profile.js"></script>
-    <!--    下拉菜单依赖的js-->
 
+    <script src="/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.options = {
+            positionClass: "toast-center-center"
+        }
+    </script>
+    <!--    下拉菜单依赖的js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script>
+    $(function(){
+        $(".clear-btn").click(clear);
+        $(".googlecalendar-btn").click(googlecalendar);
+        $(".local-btn").click(localbtn)
+    });
 
+    function googlecalendar() {
+        var btn = this;
+        if($(btn).hasClass("btn-success")) {
+            // 添加到谷歌日历
+            $.post(
+                "/googlecalendar",
+                {"cid1": $(btn).prev().val()},
+                function (data) {
+                    data = $.parseJSON(data);
+                    if (data.code === 0) {
+                        toastr.success("添加到谷歌日历成功");
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+            );
+        }
+    }
+
+    function localbtn() {
+        var btn = this;
+        if($(btn).hasClass("btn-success")) {
+            // 添加到本地
+            $.post(
+                "/local",
+                {"cid2": $(btn).prev().val()},
+                function (data) {
+                    data = $.parseJSON(data);
+                    if (data.code === 0) {
+                        toastr.success("添加到本地成功，请在d盘中查看");
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+            );
+        }
+    }
+
+    function clear() {
+        var btn = this;
+        if($(btn).hasClass("btn-info")) {
+            // 取消收藏
+            $.post(
+                "/clear",
+                {"conferenceId": $(btn).prev().val()},
+                function (data) {
+                    data = $.parseJSON(data);
+                    if (data.code === 0) {
+                        toastr.success("取消收藏成功");
+                        window.location.reload();
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+            );
+        }
+    }
+</script>
 </body>
 </html>

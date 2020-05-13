@@ -4,7 +4,6 @@ import com.academic.calendar.entity.Conference;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,5 +33,7 @@ public interface ConferenceDao {
     // 查询会议条数，动态拼条件
     int selectConferenceRows(@Param("conference")String conference, @Param("category")String category);
 
+    // 更新会议
+    int updateConference(Conference conference);
 
 }

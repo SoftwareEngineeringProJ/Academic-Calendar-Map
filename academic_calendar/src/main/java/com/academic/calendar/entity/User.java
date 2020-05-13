@@ -12,6 +12,7 @@ public class User {
     private String password;
     private String salt;
     private String email;
+    private int role;
     private Date createTime;
 
     @Override
@@ -22,8 +23,17 @@ public class User {
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", email='" + email + '\'' +
+                ", role=" + role +
                 ", createTime=" + createTime +
                 '}';
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 
     public int getUserId() {

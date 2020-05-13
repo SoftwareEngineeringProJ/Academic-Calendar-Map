@@ -2,6 +2,7 @@ package com.academic.calendar.service;
 
 import com.academic.calendar.dao.ConferenceDao;
 import com.academic.calendar.entity.Conference;
+import com.academic.calendar.entity.ConferenceES;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,5 +59,10 @@ public class ConferenceService {
     // 根据id查询会议
     public Conference findConferenceById (int id) {
         return conferenceDao.selectConferenceById(id);
+    }
+
+    // 根据id更新会议
+    public int editConferenceById(Conference conference) {
+        return conferenceDao.updateConference(conference);
     }
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+</head>
+<body>
+<header class="site-header">
+    <div class="top-header-bar" th:replace="index::TopHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-6 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
+
+
+                    <div class="header-bar-text lg-flex align-items-center">
+                        <a href="https://github.com/SoftwareEngineeringProJ/Academic-Calendar-Map">
+                            　　<i class="fa fa-github"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-envelope-o"></i>
+                        </a>
+                    </div><!-- .header-bar-text -->
+                </div><!-- .col -->
+
+                <div class="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
+                    <div class="header-bar-search" >
+                        <form class="flex align-items-stretch">
+                            <input type="search" placeholder="搜索">
+                            <button type="submit" value="" class="flex justify-content-center align-items-center"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div><!-- .header-bar-search -->
+
+                    <div class="header-bar-menu">
+                        <ul class="flex justify-content-center align-items-center py-2 pt-md-0">
+                            <li><a href="#">注册</a></li>
+                            <li><a href="#">登录</a></li>
+                        </ul>
+                    </div><!-- .header-bar-menu -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container-fluid -->
+    </div><!-- .top-header-bar -->
+
+    <div class="nav-bar" id="floatbar" th:replace="index::NavBar">
+        <div class="container">
+            <div class="row">
+                <div class="col-9 col-lg-3">
+                    <div class="site-branding">
+                        <h1 class="site-title"><a href="index.html" rel="home">学术<span>日历与地图</span></a></h1>
+                    </div><!-- .site-branding -->
+                </div><!-- .col -->
+
+                <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
+                    <nav class="site-navigation flex justify-content-end align-items-center">
+                        <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+                            <li class="current-menu-item"><a href="index.html">首页</a></li>
+                            <li><a href="conference.html">查询会议</a></li>
+                            <li><a href="add.html">添加会议</a></li>
+                            <li><a href="#aboutus">关于我们</a></li>
+                            <li><a href="personal.html">个人中心</a></li>
+                        </ul>
+
+
+
+                    </nav><!-- .site-navigation -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .nav-bar -->
+</header><!-- .site-header -->
+<div class="main">
+    <div class="container pl-5 pr-5 pt-3 pb-3 mt-3 mb-3">
+        <img src="/images/404.jpg"  alt="404">
+    </div>
+</div>
+</body>
+</html>

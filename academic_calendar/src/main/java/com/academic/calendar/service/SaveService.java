@@ -3,6 +3,7 @@ package com.academic.calendar.service;
 import com.academic.calendar.dao.ConferenceDao;
 import com.academic.calendar.dao.SaveDao;
 import com.academic.calendar.entity.Conference;
+import com.academic.calendar.entity.ConferenceES;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,5 +55,10 @@ public class SaveService {
     // 查询记录条数
     public int findSaveRows(int userId) {
         return saveDao.selectSaveRows(userId);
+    }
+
+    // 根据会议id查用户
+    public List<Integer> findUser(int conferenceId) {
+        return saveDao.selectUserByConference(conferenceId);
     }
 }

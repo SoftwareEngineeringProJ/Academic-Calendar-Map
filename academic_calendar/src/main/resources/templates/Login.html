@@ -109,7 +109,7 @@
         <div class="col-sm-12">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
 
-            <input type="text" placeholder="  用户名" id="username" name="username"
+            <input type="text" placeholder="  用户名或邮箱" id="username" name="username"
                    th:class="|form-control fa fa-user-circle ${usernameMsg!=null?'is-invalid':''}|"
                    th:value="${param.username}" required>
 
@@ -122,8 +122,8 @@
                    th:class="|form-control fa fa-user-circle ${passwordMsg!=null?'is-invalid':''}|" required>
             <div class="invalid-feedback" align="left" th:text="'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+${passwordMsg}">反馈信息</div>
         </div>
-        <div style="float:right"><a href="/forget" style="text-decoration: none">忘记密码&nbsp&nbsp&nbsp&nbsp&nbsp</a></div>
-        <div style="float:right"><a href="/register" style="text-decoration: none">没有账号?去注册&nbsp&nbsp&nbsp&nbsp&nbsp</a></div>
+        <div style="float:right"><a href="/forget" style="text-decoration: none">&nbsp&nbsp&nbsp忘记密码&nbsp&nbsp&nbsp&nbsp&nbsp  </a></div>
+        <div style="float:right"><a href="/register" style="text-decoration: none">没有账号?去注册&nbsp&nbsp&nbsp&nbsp&nbsp <b>|</b></a></div>
         <input type="submit" value="登录" class="submit" align="center">
         <br>
 
