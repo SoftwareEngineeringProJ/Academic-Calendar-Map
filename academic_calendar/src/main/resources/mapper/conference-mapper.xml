@@ -67,4 +67,8 @@
         location=#{location},submission_deadline=#{submissionDeadline}
         where id=#{id}
     </update>
+
+    <delete id="deleteConference">
+        delete from conference where id=#{id}
+    </delete>
 </mapper>

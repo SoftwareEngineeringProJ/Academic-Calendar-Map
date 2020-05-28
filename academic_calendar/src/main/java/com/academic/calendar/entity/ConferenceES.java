@@ -6,7 +6,7 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 /**
- * 会议信息实体类 ES用
+ * 会议信息实体类 ES用    坑点：es需要的实体类和springboot不能用一个
  */
 @Document(indexName = "academic_calendar_map", type = "_doc", shards = 6, replicas = 3)
 public class ConferenceES {

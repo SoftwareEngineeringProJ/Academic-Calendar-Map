@@ -36,4 +36,6 @@ public interface ConferenceDao {
     // 更新会议
     int updateConference(Conference conference);
 
+    int deleteConference(int id);
+
 }

@@ -65,4 +65,8 @@ public class ConferenceService {
     public int editConferenceById(Conference conference) {
         return conferenceDao.updateConference(conference);
     }
+
+    public int deleteConference(int id) {
+        return conferenceDao.deleteConference(id);
+    }
 }
